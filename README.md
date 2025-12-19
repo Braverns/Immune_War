@@ -25,12 +25,14 @@
 ## 👥 Tim Pengembang
 **Immune War Development Team**
 
-- Game Designer  : …
-- Programmer     : …
-- Game Artist    : …
-- Sound Designer : …
+**Game Designers**  
+Ahmad Diky Effendi · Dwi Yati 
 
-*(Isi sesuai anggota tim)*
+**Artists & Audio**  
+Adisty Nasywaa Huuriyah · Aurelia Foustine · Febe Olivia Sumali · Pierre Haumahu   
+
+**Programmers**  
+Ahmad Mujahid · Fatkhul Hadi Dharmawan · Radin Nizar Fazhari
 
 ---
 
