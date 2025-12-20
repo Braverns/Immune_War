@@ -15,8 +15,7 @@ func _ready() -> void:
 	
 	$GameOverPanel/VBoxContainer/MenuButton.pressed.connect(_on_menu_button_pressed)
 	$GameOverPanel/VBoxContainer/ReplayButton.pressed.connect(_on_replay_button_pressed)
-	
-	$LevelCompletedPanel/NextLevelButton.pressed.connect(_on_next_level_button_pressed)
+	$LevelCompletedPanel/Completed.pressed.connect(_on_next_level_completed_pressed)
 
 	reset_ui()
 	
@@ -40,8 +39,8 @@ func _on_replay_button_pressed() -> void:
 	SceneManager.reloadCurrentLevelScene()
 
 
-func _on_next_level_button_pressed() -> void:
-	SceneManager.loadLevelScene(Global.next_level)
+func _on_next_level_completed_pressed() -> void:
+	SceneManager.loadMenuScene()
 
 
 func render_level_completed() -> void:

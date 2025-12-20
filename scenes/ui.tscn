@@ -55,7 +55,7 @@ text = "Level Complete !!!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NextLevelButton" type="Button" parent="LevelCompletedPanel"]
+[node name="Completed" type="Button" parent="LevelCompletedPanel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -69,7 +69,7 @@ offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_gqmmt")
-text = "Goto Next Level"
+text = "Completed"
 
 [node name="GameOverPanel" type="Panel" parent="."]
 visible = false
