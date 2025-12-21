@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://br8ub7waghwlo"]
+[gd_scene load_steps=50 format=3 uid="uid://br8ub7waghwlo"]
 
 [ext_resource type="Script" uid="uid://bn2vkypkgjq53" path="res://scripts/PlayerWithFSM.gd" id="1_d2wvv"]
 [ext_resource type="Script" uid="uid://rvk8tlhrqaft" path="res://scripts/StateMachine.gd" id="2_3v2ag"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ctl7tyb16pxr8" path="res://assets/sprites/characters/player_1/Double_Jump.png" id="10_oprun"]
 [ext_resource type="AudioStream" uid="uid://dwvouifxo4c84" path="res://assets/audio/07 - MegamanDamage.wav" id="12_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://de8gd67ga76ob" path="res://assets/sprites/characters/player_1/Fall.png" id="12_qfm1y"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="18_fulsm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
 
@@ -301,3 +302,14 @@ bus = &"SFX"
 [node name="HurtSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_3v2ag")
 bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(0, -20)
+process_callback = 0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("18_fulsm")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
