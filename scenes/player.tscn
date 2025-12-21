@@ -294,6 +294,7 @@ shape = SubResource("CapsuleShape2D_tefeu")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a8y0u")
 animation = &"run"
+frame_progress = 0.66446847
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qlg0r")
@@ -305,7 +306,7 @@ bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(0, -20)
+position = Vector2(1, -87)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
