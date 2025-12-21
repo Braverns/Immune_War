@@ -96,7 +96,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(14, 364)
+position = Vector2(24, 246)
 process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -106,13 +106,13 @@ script = ExtResource("15_nossa")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." instance=ExtResource("16_hjqri")]
-position = Vector2(14, 384)
+position = Vector2(24, 266)
 collision_mask = 18
 move_speed = 200.0
 
 [node name="PhantomCamera2D2" type="Node2D" parent="Player" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(14, 364)
+position = Vector2(24, 246)
 script = ExtResource("13_iw4em")
 priority = 1
 follow_mode = 5

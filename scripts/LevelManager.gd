@@ -28,4 +28,3 @@ func _on_trophy_collected() -> void:
 	ui_manager.render_level_completed()
 	await get_tree().create_timer(GAME_OVER_DELAY).timeout
 	player.disable_input()
-

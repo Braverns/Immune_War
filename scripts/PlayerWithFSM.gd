@@ -4,6 +4,9 @@ class_name PlayerWithFSM extends CharacterBody2D
 @export var move_speed: float = 300.0
 @export var jump_velocity: float = -500.0
 
+#✅ NYIMPAN ARAH TERAKHIR AIM (HORIZONTAL ONLY, BY DEFAULT KE KANAN)
+var last_aim_direction: Vector2 = Vector2.RIGHT
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 @onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
@@ -58,9 +61,33 @@ func bounce() -> void:
 	velocity.y = jump_velocity * 0.5
 	animated_sprite.play("jump")
 
+# ✅ FUNGSI UNTUK NGATUR AIM SAAT TEMBAK
+func aim_direction() -> Vector2:
+	# NOTE: 
+	# input aim & movement terpisah, bisa digabung nntinya
+	var dir = Vector2(
+		Input.get_axis("ui_left", "ui_right"), #x-axis
+		Input.get_axis("ui_up", "ui_down") #y-axis
+	)
+
+	# JIKA PLAYER BERGERAK
+	if dir != Vector2.ZERO:
+		# dir = Vector2(direction, 0)
+		last_aim_direction = dir.normalized()
+		return last_aim_direction
+
+	# last_aim_direction = dir.normalized()
+	return last_aim_direction
+
 
 func shoot() -> void:
 	var bullet = await bullet_pool.spawn()
 
+	# ❌ 2-directional shoot
+	# if bullet:
+	# 	bullet.launch(global_position, 1.0 if direction >= 0 else -1.0)
+
+	# ✅ 8-directional shoot
 	if bullet:
-		bullet.launch(global_position, 1.0 if direction >= 0 else -1.0)
+		var aim_dir = aim_direction()
+		bullet.launch(global_position, aim_dir)

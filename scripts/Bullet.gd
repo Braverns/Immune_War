@@ -7,6 +7,9 @@ var currentSpeed := 0.0
 var remainingLifetime : float = 0.0
 var _frames_since_spawn = 0
 
+# PAKAI VECTOR UNTUK MENGATUR 8 ARAH (HORISONTAL, VERTIKAL, DIAGONAL)
+var direction: Vector2 = Vector2.ZERO
+
 @onready var visibleOnScreenNotifier : VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 
@@ -30,7 +33,7 @@ func _physics_process(delta):
 		physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
 			
 	# Normal Movement Logic
-	position += transform.x * currentSpeed * delta
+	position += direction * currentSpeed * delta
 	
 	remainingLifetime -= delta
 	if remainingLifetime <= 0:
@@ -46,12 +49,21 @@ func kill():
 
 
 # This function is called by the shooter, NOT the pool
-func launch(target_pos: Vector2, direction: float):
+func launch(target_pos: Vector2, dir: Vector2):
+	print(dir)
 	# 1. FORCE INTERPOLATION OFF
 	# This tells the engine: "For right now, ignore all smoothing. Just draw where I say."
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
-	currentSpeed = speed if direction >= 0 else -speed
 
+	# ❌ sebelum (hanya 2-directional shoot)
+	# dir -> float
+	# currentSpeed = speed if direction >= 0 else -speed
+
+	# ✅ TERBARU (MENDUKUNG 8-DIRECTION SHOOT)
+	# dir -> Vector2
+	currentSpeed = speed
+	direction = dir.normalized()
+	
 	# 2. Teleport & Setup
 	global_position = target_pos
 	
@@ -63,6 +75,9 @@ func launch(target_pos: Vector2, direction: float):
 	set_physics_process(true)
 	set_process(true)
 	$CollisionShape2D.set_deferred("disabled", false)
+
+	# Rotasi sprite biar ngarah ke tembakan
+	rotation = direction.angle()
 
 	# :: Option A ::
 	# global_position = target_pos

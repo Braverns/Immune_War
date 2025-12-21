@@ -20,6 +20,7 @@ func physics_update(delta: float) -> void:
 	if direction:
 		player.velocity.x = direction * player.move_speed
 		player.animated_sprite.flip_h = direction < 0
+		player.last_aim_direction = Vector2(sign(direction), 0)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.move_speed)
 	
@@ -27,8 +28,12 @@ func physics_update(delta: float) -> void:
 
 	# Sprite Animation
 	player.animated_sprite.play("run")
-	player.animated_sprite.flip_h = direction < 0
 
+	# ❌ DIHAPUS : AGAR FLIP TERAKHIR YANG AKTIF	
+	# print("before:  ", player.animated_sprite.flip_h)
+	# player.animated_sprite.flip_h = direction < 0
+	# print("after:  ", player.animated_sprite.flip_h)
+	
 	# Check Transitions
 	# Transitioning using the injected state_machine reference
 	if Input.is_action_just_pressed("jump"):
