@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ljxxkbdosva"]
+
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="1_bl13t"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="2_iyx0m"]
+
+[sub_resource type="Resource" id="Resource_74lek"]
+script = ExtResource("2_iyx0m")
+
+[node name="Test" type="Node2D"]
+
+[node name="PhantomCamera2D2" type="Node2D" parent="." node_paths=PackedStringArray("follow_target") groups=["Player"]]
+top_level = true
+position = Vector2(0, -20)
+script = ExtResource("1_bl13t")
+priority = 1
+follow_mode = 5
+follow_target = NodePath("")
+snap_to_pixel = true
+tween_resource = SubResource("Resource_74lek")
+tween_on_load = false
+follow_offset = Vector2(0, -20)
+follow_damping = true
+follow_damping_value = Vector2(0.06, 0.03)
+follow_axis_lock = 2
+dead_zone_width = 0.416
+dead_zone_height = 0.243
+_preview_noise = false
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
