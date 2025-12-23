@@ -19,7 +19,6 @@ var direction: float = 1.0
 
 # :: Lifecycle ::
 func _ready() -> void:
-	# Initialize the State Machine passing 'self'
 	state_machine.init(self)
 
 
@@ -40,7 +39,6 @@ func apply_gravity(delta: float, multiplier: float = 1.0) -> void:
 
 
 # :: Wrapper to be called by external hazards ::
-# Instead of a loop, we just tell the FSM to switch states
 func apply_knockback(source_pos: Vector2) -> void:
 	var knockback_state = state_machine.get_state_by_name("Knockback")
 	if knockback_state:
@@ -61,33 +59,35 @@ func bounce() -> void:
 	velocity.y = jump_velocity * 0.5
 	animated_sprite.play("jump")
 
-# ✅ FUNGSI UNTUK NGATUR AIM SAAT TEMBAK
-func aim_direction() -> Vector2:
-	# NOTE: 
-	# input aim & movement terpisah, bisa digabung nntinya
-	var dir = Vector2(
-		Input.get_axis("ui_left", "ui_right"), #x-axis
-		Input.get_axis("ui_up", "ui_down") #y-axis
-	)
 
-	# JIKA PLAYER BERGERAK
+
+func aim_direction() -> Vector2:
+	var dir := Vector2.ZERO
+
+	if Input.is_action_pressed("aim_left"):
+		dir.x -= 1
+	if Input.is_action_pressed("aim_right"):
+		dir.x += 1
+	if Input.is_action_pressed("aim_up"):
+		dir.y -= 1
+	if Input.is_action_pressed("aim_down"):
+		dir.y += 1
+
+	# JIKA SEDANG AIM (DITAHAN)
 	if dir != Vector2.ZERO:
-		# dir = Vector2(direction, 0)
 		last_aim_direction = dir.normalized()
 		return last_aim_direction
 
-	# last_aim_direction = dir.normalized()
+	# JIKA DILEPAS → IKUT ARAH SPRITE
+	var facing_dir := 1.0
+	if animated_sprite.flip_h:
+		facing_dir = -1.0
+
+	last_aim_direction = Vector2(facing_dir, 0)
 	return last_aim_direction
 
 
 func shoot() -> void:
 	var bullet = await bullet_pool.spawn()
-
-	# ❌ 2-directional shoot
-	# if bullet:
-	# 	bullet.launch(global_position, 1.0 if direction >= 0 else -1.0)
-
-	# ✅ 8-directional shoot
 	if bullet:
-		var aim_dir = aim_direction()
-		bullet.launch(global_position, aim_dir)
+		bullet.launch(global_position, aim_direction())
