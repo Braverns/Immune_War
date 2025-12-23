@@ -3,6 +3,7 @@ extends Node
 @export var player: CharacterBody2D
 @export var camera_0: PhantomCamera2D
 @export var camera_1: PhantomCamera2D
+@export var camera_2: PhantomCamera2D
 
 var current_fase: int = -1
 var last_fase: int = -1
@@ -33,12 +34,16 @@ func update_camera() -> void:
 		camera_0.priority = 0
 	if camera_1:
 		camera_1.priority = 0
+	if camera_2:
+		camera_2.priority = 0
 
 	match current_fase:
 		0:
 			camera_0.priority = 1
 		1:
 			camera_1.priority = 1
+		2:
+			camera_2.priority = 1
 		-1:
 			match last_fase:
 				0:
@@ -67,3 +72,12 @@ func _on_fase_1_body_entered(body: Node2D) -> void:
 func _on_fase_1_body_exited(body: Node2D) -> void:
 	if body == player:
 		clear_fase(1)
+
+func _on_fase_2_body_entered(body: Node2D) -> void:
+	if body == player:
+		set_fase(2)
+
+
+func _on_fase_2_body_exited(body: Node2D) -> void:
+	if body == player:
+		clear_fase(2)
