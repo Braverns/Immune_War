@@ -11,8 +11,8 @@ func loadMenuScene():
 	loadScene(menuScene)
 
 
-func loadLevelScene(level: int):
-	var levelScenePath = "res://scenes/levels/level_" + str(level) + ".tscn"
+func loadLevelScene(_level: int):
+	var levelScenePath = "res://scenes/levels/level_1.tscn"
 	var levelScene = load(levelScenePath) as PackedScene
 	loadScene(levelScene)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=29 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -19,7 +19,8 @@
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_gmpev"]
 [ext_resource type="Resource" uid="uid://bkrn57rr3s3rx" path="res://data/enemy_conf_2.tres" id="20_gmpev"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
-[ext_resource type="PackedScene" path="res://scenes/spawner.tscn" id="20_ndtll"]
+[ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
+[ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
 resource_name = "Objects"
@@ -48,6 +49,10 @@ size = Vector2(17, 178.5)
 script = ExtResource("20_mkypq")
 transition = 1
 ease = 1
+
+[sub_resource type="Resource" id="Resource_7h2jl"]
+script = ExtResource("21_mkypq")
+metadata/_custom_type_script = "uid://bl06t6sm325gb"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_x2xxo")
@@ -182,6 +187,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="Spawner" parent="." instance=ExtResource("20_ndtll")]
 position = Vector2(418, 382)
+enemy_config = SubResource("Resource_7h2jl")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
 [connection signal="body_exited" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_exited"]
