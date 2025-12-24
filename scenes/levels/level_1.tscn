@@ -17,9 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://rwbimw3fhoxj" path="res://scenes/enemy.tscn" id="18_1aans"]
 [ext_resource type="Script" uid="uid://byywb0v1cwgmn" path="res://scripts/camera_manager.gd" id="18_np2pn"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_gmpev"]
-[ext_resource type="Resource" uid="uid://d4jk35wgjvusy" path="res://data/enemy_conf_1.tres" id="19_v6ha0"]
 [ext_resource type="Resource" uid="uid://bkrn57rr3s3rx" path="res://data/enemy_conf_2.tres" id="20_gmpev"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
+[ext_resource type="PackedScene" path="res://scenes/spawner.tscn" id="20_ndtll"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
 resource_name = "Objects"
@@ -105,10 +105,6 @@ position = Vector2(279, 393)
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
 position = Vector2(1619, 271)
 
-[node name="Enemy" parent="." instance=ExtResource("18_1aans")]
-position = Vector2(418, 378)
-config = ExtResource("19_v6ha0")
-
 [node name="Enemy2" parent="." instance=ExtResource("18_1aans")]
 position = Vector2(859, 316)
 config = ExtResource("20_gmpev")
@@ -183,6 +179,9 @@ snap_to_pixel = true
 tween_resource = SubResource("Resource_gmpev")
 host_layers = 5
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="Spawner" parent="." instance=ExtResource("20_ndtll")]
+position = Vector2(418, 382)
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
 [connection signal="body_exited" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_exited"]
