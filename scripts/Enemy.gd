@@ -3,6 +3,10 @@ extends CharacterBody2D
 
 @export var config: EnemyConfig
 var direction = -1  # Mulai bergerak ke kiri
+var player
+
+@export var bullet_enemy_scene: PackedScene
+#buat narik bulletenemy.tscn dari inspector 
 
 @onready var floorRayCast: RayCast2D = $FloorRayCast2D
 
@@ -10,6 +14,12 @@ var direction = -1  # Mulai bergerak ke kiri
 func _ready():
 	$HitBox.body_entered.connect(_on_hitbox_body_entered)
 	$StompZone.body_entered.connect(_on_stompzone_body_entered)
+	$Timer.timeout.connect(shoot)
+	
+	var players = get_tree().get_nodes_in_group("Player")
+	if players.size() > 0:
+		player = players[0]
+
 
 
 func _physics_process(delta):
@@ -33,13 +43,23 @@ func _physics_process(delta):
 		direction *= -1  # Balik arah
 		floorRayCast.target_position.x *= -1  # Balik target raycast juga	
 
+func shoot():
+	if bullet_enemy_scene == null or player == null:
+		return
+
+	var bullet = bullet_enemy_scene.instantiate()
+	var dir = (player.global_position - global_position).normalized()
+
+	get_tree().current_scene.add_child(bullet)
+	bullet.launch(global_position, dir)
+	print("shoot dipanggil")
 
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Player"):
 		Global.lose_life(config.damage)
-		var player := body as PlayerWithFSM
-		player.apply_knockback(global_position)
+		var hit_player := body as PlayerWithFSM
+		hit_player.apply_knockback(global_position)
 
 
 func _on_stompzone_body_entered(body):
