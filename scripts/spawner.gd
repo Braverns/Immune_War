@@ -22,11 +22,11 @@ func activate():
 	if active:
 		return
 
-	print("[Spawner] AKTIF")
+	#print("[Spawner] AKTIF")
 	active = true
 	spawned = 0
 
-	# 🔥 SPAWN PERTAMA LANGSUNG
+	# SPAWN PERTAMA LANGSUNG
 	_spawn_enemy()
 
 	# Kalau masih ada sisa enemy → pakai timer
@@ -34,11 +34,11 @@ func activate():
 		timer.start()
 
 func _on_timer_timeout():
-	print("[Spawner] TIMER TIMEOUT | spawned:", spawned)
+	#print("[Spawner] TIMER TIMEOUT | spawned:", spawned)
 
 	if spawned >= spawn_count:
 		timer.stop()
-		print("[Spawner] SELESAI")
+		#print("[Spawner] SELESAI")
 		return
 
 	_spawn_enemy()
@@ -55,4 +55,4 @@ func _spawn_enemy():
 	get_tree().current_scene.call_deferred("add_child", ene)
 	spawned += 1
 
-	print("[Spawner] ENEMY SPAWN KE-", spawned, "DI:", ene.global_position)
+	#print("[Spawner] ENEMY SPAWN KE-", spawned, "DI:", ene.global_position)
