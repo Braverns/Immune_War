@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var config: EnemyConfig
 var direction = -1  # Mulai bergerak ke kiri
 var player
+@export var health: int = 5
 
 @export var bullet_enemy_scene: PackedScene
 #buat narik bulletenemy.tscn dari inspector 
@@ -13,9 +14,10 @@ var player
 
 func _ready():
 	$HitBox.body_entered.connect(_on_hitbox_body_entered)
-	$StompZone.body_entered.connect(_on_stompzone_body_entered)
 	$Timer.timeout.connect(shoot)
 	
+	Global.enemy_damaged.connect(_on_enemy_damaged)
+
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() > 0:
 		player = players[0]
@@ -61,15 +63,7 @@ func _on_hitbox_body_entered(body):
 		Global.lose_life(config.damage)
 		var hit_player := body as PlayerWithFSM
 		hit_player.apply_knockback(global_position)
-
-
-func _on_stompzone_body_entered(body):
-	if body.is_in_group("Player"):
-		# Cek apakah player sedang jatuh
-		if body.velocity.y > 0:
-			# Stomp berhasil!
-			body.bounce()  # Kita akan tambah ini ke player
-			die()
+	
 
 
 func die():
@@ -85,5 +79,16 @@ func die():
 	# await $HurtSFX.finished
 
 	# Option B - use global signal
+	Global.register_enemy_kill(self)
 	Global.add_coins(1)
 	queue_free()
+
+
+func _on_enemy_damaged(enemy: Node, damage: int) -> void:
+	if enemy != self:
+		return
+	$HurtSFX.play()
+	health -= damage
+
+	if health <= 0:
+		die()

@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 [global_group]
 
 Player=""
+Enemy=""
 
 [input]
 
@@ -115,6 +116,7 @@ aim_down={
 2d_physics/layer_5="Ground"
 2d_physics/layer_6="Trophy"
 2d_physics/layer_7="HurtBox"
+2d_physics/layer_8="Bullet"
 
 [physics]
 

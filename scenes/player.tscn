@@ -263,7 +263,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_d2wvv")
 
-[node name="BulletPool" type="Node" parent="."]
+[node name="BulletPool" type="Node" parent="." groups=["Player"]]
 script = ExtResource("2_f1ej7")
 scene_to_pool = ExtResource("3_oprun")
 

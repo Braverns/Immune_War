@@ -15,6 +15,7 @@ var direction: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	visibleOnScreenNotifier.screen_exited.connect(_on_screen_exited)
+	body_entered.connect(_on_body_entered)
 
 
 func _on_screen_exited() -> void:
@@ -93,3 +94,8 @@ func launch(target_pos: Vector2, dir: Vector2):
 	# await get_tree().physics_frame
 	# reset_physics_interpolation()
 	# visible = true
+
+func _on_body_entered(body: Node) -> void:
+	if body.is_in_group("Enemy"):
+		Global.enemy_damaged.emit(body, 1)
+		kill()

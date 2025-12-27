@@ -8,7 +8,7 @@ const STARTING_COINS = 0
 # :: Backing Variables ::
 var _coins: int = STARTING_COINS
 var _lives: int = STARTING_LIVES
-
+var _enemy_killed: int = 0
 # :: Properties ::
 var coins: int:
 	get:
@@ -37,6 +37,8 @@ signal game_over()
 signal trophy_collected()
 signal enemy_died(enemy: Node)
 signal box_destroyed(box: Node)
+signal enemy_damaged(enemy: Node, damage: int)
+signal enemy_killed_changed (total: int)
 
 # :: Functions ::
 func add_coins(amount: int) -> void:
@@ -62,3 +64,7 @@ func reset_lives():
 
 func trigger_trophy_collected() -> void:
 	trophy_collected.emit()
+
+func register_enemy_kill(enemy: Node) -> void:
+	_enemy_killed += 1
+	enemy_killed_changed.emit(_enemy_killed)
