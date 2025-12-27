@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=31 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -17,9 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://rwbimw3fhoxj" path="res://scenes/enemy.tscn" id="18_1aans"]
 [ext_resource type="Script" uid="uid://byywb0v1cwgmn" path="res://scripts/camera_manager.gd" id="18_np2pn"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_gmpev"]
-[ext_resource type="Resource" uid="uid://d4jk35wgjvusy" path="res://data/enemy_conf_1.tres" id="19_v6ha0"]
 [ext_resource type="Resource" uid="uid://bkrn57rr3s3rx" path="res://data/enemy_conf_2.tres" id="20_gmpev"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
+[ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
+[ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
+[ext_resource type="Script" uid="uid://dsk514lmrk0ek" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
 resource_name = "Objects"
@@ -48,6 +50,12 @@ size = Vector2(17, 178.5)
 script = ExtResource("20_mkypq")
 transition = 1
 ease = 1
+
+[sub_resource type="Resource" id="Resource_7h2jl"]
+script = ExtResource("21_mkypq")
+metadata/_custom_type_script = "uid://bl06t6sm325gb"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h2jl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_x2xxo")
@@ -104,10 +112,6 @@ position = Vector2(279, 393)
 
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
 position = Vector2(1619, 271)
-
-[node name="Enemy" parent="." instance=ExtResource("18_1aans")]
-position = Vector2(418, 378)
-config = ExtResource("19_v6ha0")
 
 [node name="Enemy2" parent="." instance=ExtResource("18_1aans")]
 position = Vector2(859, 316)
@@ -183,6 +187,42 @@ snap_to_pixel = true
 tween_resource = SubResource("Resource_gmpev")
 host_layers = 5
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="SpawnerEnemyManager" type="Node" parent="."]
+
+[node name="fase0" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="SpawnerEnemy" parent="SpawnerEnemyManager/fase0" instance=ExtResource("20_ndtll")]
+position = Vector2(418, 382)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+spawn_interval = 2.0
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase0"]
+position = Vector2(6, 318)
+scale = Vector2(0.408127, 8.801149)
+script = ExtResource("22_ndtll")
+spawner_path = NodePath("../SpawnerEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase0/Spawner-Trigger"]
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="fase1" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="SpawnerEnemy" parent="SpawnerEnemyManager/fase1" instance=ExtResource("20_ndtll")]
+position = Vector2(1320, 369)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_interval = 2.0
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase1"]
+position = Vector2(6, 318)
+scale = Vector2(0.408127, 8.801149)
+script = ExtResource("22_ndtll")
+spawner_path = NodePath("../SpawnerEnemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase1/Spawner-Trigger"]
+position = Vector2(2604.5813, -4.544861)
+shape = SubResource("RectangleShape2D_7h2jl")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
 [connection signal="body_exited" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_exited"]

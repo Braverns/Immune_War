@@ -13,12 +13,13 @@ func _ready():
 
 
 func _physics_process(delta):
-	# Terapkan gravitasi
+	if config == null:
+		push_warning("Enemy spawned WITHOUT config: " + str(self))
+		return  # Jangan lanjut kalau config belum ada
+
 	velocity += get_gravity() * delta
-	
-	# Gerak horizontal
 	velocity.x = direction * config.move_speed
-	
+
 	# Animation
 	$AnimatedSprite2D.flip_h = direction > 0
 	$AnimatedSprite2D.play("run")
@@ -64,5 +65,5 @@ func die():
 	# await $HurtSFX.finished
 
 	# Option B - use global signal
-	Global.enemy_died.emit(self)
+	Global.add_coins(1)
 	queue_free()
