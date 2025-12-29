@@ -239,7 +239,6 @@ tile_set = ExtResource("10_7h2jl")
 collision_layer = 4112
 collision_mask = 5
 script = ExtResource("24_mqh5v")
-camera_shift_x = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
 position = Vector2(586, 280)
