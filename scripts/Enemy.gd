@@ -30,12 +30,17 @@ func _physics_process(delta):
 		return  # Jangan lanjut kalau config belum ada
 
 	velocity += get_gravity() * delta
-	velocity.x = direction * config.move_speed
+	velocity.x = 0
 
 	# Animation
-	$AnimatedSprite2D.flip_h = direction > 0
-	$AnimatedSprite2D.play("run")
-	
+	if $AnimatedSprite2D.sprite_frames.has_animation("idle"):
+		$AnimatedSprite2D.play("idle")
+	else:
+		$AnimatedSprite2D.stop()
+		
+	if player:
+		var dir_to_player = player.global_position.x - global_position.x
+		$AnimatedSprite2D.flip_h = dir_to_player > 0
 	move_and_slide()
 
 	var is_hit_wall = is_on_wall()
