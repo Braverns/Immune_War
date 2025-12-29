@@ -65,5 +65,6 @@ func die():
 	# await $HurtSFX.finished
 
 	# Option B - use global signal
+	Global.enemy_died.emit(self)
 	Global.add_coins(1)
 	queue_free()
