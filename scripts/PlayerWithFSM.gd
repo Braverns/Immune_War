@@ -17,6 +17,9 @@ var last_aim_direction: Vector2 = Vector2.RIGHT
 var is_dead: bool = false
 var direction: float = 1.0
 
+var shoot_cooldown := 0.0
+
+
 # :: Lifecycle ::
 func _ready() -> void:
 	state_machine.init(self)
@@ -29,7 +32,9 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	state_machine.update(delta)
 
-	if Input.is_action_just_pressed("shoot"):
+	shoot_cooldown -= delta
+
+	if Input.is_action_pressed("shoot") and shoot_cooldown <= 0:
 		shoot()
 
 
@@ -88,6 +93,19 @@ func aim_direction() -> Vector2:
 
 
 func shoot() -> void:
+	# Cek ammo mutasi
+	if Global.is_mutation_active:
+		if Global.mutation_ammo <= 0:
+			return
+
 	var bullet = await bullet_pool.spawn()
 	if bullet:
+		# SET FIRE RATE
+		shoot_cooldown = Global.MUTATION_FIRE_RATE if Global.is_mutation_active else Global.NORMAL_FIRE_RATE
+		
+		# LAUNCH BULLET
 		bullet.launch(global_position, aim_direction())
+		
+		# KURANGI AMMO JIKA MUTASI
+		if Global.is_mutation_active:
+			Global.consume_mutation_ammo()

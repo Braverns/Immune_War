@@ -51,49 +51,23 @@ func kill():
 
 # This function is called by the shooter, NOT the pool
 func launch(target_pos: Vector2, dir: Vector2):
-	print(dir)
-	# 1. FORCE INTERPOLATION OFF
-	# This tells the engine: "For right now, ignore all smoothing. Just draw where I say."
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
 
-	# ❌ sebelum (hanya 2-directional shoot)
-	# dir -> float
-	# currentSpeed = speed if direction >= 0 else -speed
+	# 🔥 SPEED BERDASARKAN MODE
+	speed = Global.MUTATION_BULLET_SPEED if Global.is_mutation_active else Global.NORMAL_BULLET_SPEED
 
-	# ✅ TERBARU (MENDUKUNG 8-DIRECTION SHOOT)
-	# dir -> Vector2
 	currentSpeed = speed
 	direction = dir.normalized()
-	
-	# 2. Teleport & Setup
 	global_position = target_pos
 	
 	remainingLifetime = lifetime
 	_frames_since_spawn = 0
 	
-	# 3. Enable Logic
 	visible = true
 	set_physics_process(true)
 	set_process(true)
 	$CollisionShape2D.set_deferred("disabled", false)
-
-	# Rotasi sprite biar ngarah ke tembakan
 	rotation = direction.angle()
-
-	# :: Option A ::
-	# global_position = target_pos
-	# currentSpeed = speed if direction > 0 else -speed
-	# remainingLifetime = lifetime
-	# _frames_since_spawn = 0
-	
-	# set_physics_process(true)
-	# set_process(true)
-	# $CollisionShape2D.set_deferred("disabled", false)
-	
-	# # Delay visibility until after physics has processed the new position
-	# await get_tree().physics_frame
-	# reset_physics_interpolation()
-	# visible = true
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("Enemy"):
