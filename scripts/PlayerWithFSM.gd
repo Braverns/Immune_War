@@ -34,8 +34,14 @@ func _process(delta: float) -> void:
 
 	shoot_cooldown -= delta
 
-	if Input.is_action_pressed("shoot") and shoot_cooldown <= 0:
-		shoot()
+	# MODE MUTASI = TAHAN
+	if Global.is_mutation_active:
+		if Input.is_action_pressed("shoot") and shoot_cooldown <= 0:
+			shoot()
+	else:
+		# MODE NORMAL = KLIK SAJA
+		if Input.is_action_just_pressed("shoot") and shoot_cooldown <= 0:
+			shoot()
 
 
 # :: Helper for states to access gravity ::
