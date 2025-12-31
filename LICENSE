@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2025 Immune War Development Team. All contributors.
+Copyright (c) 2025 Immune War Development Team and contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -12,6 +12,23 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
+---
+
+Asset Disclaimer
+
+This license applies to the SOURCE CODE and original works created by the
+Immune War Development Team.
+
+Some visual, audio, or other assets included in this repository are
+placeholder assets or sourced from third-party free resources and are NOT
+covered by this MIT License.
+
+These assets are used for development and demonstration purposes only and
+will be replaced with original assets in future versions of the project.
+Usage of such third-party assets is subject to their respective licenses.
+
+---
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -19,3 +36,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
