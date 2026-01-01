@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://c58hph1dx4wn7"]
+
+[ext_resource type="Script" uid="uid://epl4mo5qfpet" path="res://scripts/pil.gd" id="1_gtlig"]
+[ext_resource type="Texture2D" uid="uid://do2on0ws7jikq" path="res://assets/sprites/props/Pil/Pil.png" id="2_gtlig"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlb6a"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(0, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73823"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(97, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqjpt"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(194, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2db5o"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(291, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_847l7"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(388, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7jap"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(485, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ku7b"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(582, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38l1g"]
+atlas = ExtResource("2_gtlig")
+region = Rect2(679, 0, 97, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkv2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlb6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73823")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqjpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2db5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_847l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7jap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ku7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38l1g")
+}],
+"loop": true,
+"name": &"Pil",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
+radius = 6.0
+
+[node name="Pil" type="Area2D"]
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
+script = ExtResource("1_gtlig")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_jkv2x")
+animation = &"Pil"
+autoplay = "Pil"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jkv2x")
+animation = &"Pil"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_o6xl0")

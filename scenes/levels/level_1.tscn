@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=48 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -24,6 +24,9 @@
 [ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
 [ext_resource type="Script" uid="uid://dsk514lmrk0ek" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
 [ext_resource type="Script" uid="uid://mst17l4njy8d" path="res://scripts/Boundary.gd" id="24_mqh5v"]
+[ext_resource type="PackedScene" uid="uid://dnwr55ex8lki6" path="res://scenes/box-health.tscn" id="25_o7j4k"]
+[ext_resource type="Script" uid="uid://epl4mo5qfpet" path="res://scripts/pil.gd" id="26_x7jkp"]
+[ext_resource type="Texture2D" uid="uid://do2on0ws7jikq" path="res://assets/sprites/props/Pil/Pil.png" id="27_0qwwm"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
 resource_name = "Objects"
@@ -61,6 +64,86 @@ metadata/_custom_type_script = "uid://bl06t6sm325gb"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqh5v"]
 size = Vector2(20, 175.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlb6a"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(0, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73823"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(97, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqjpt"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(194, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2db5o"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(291, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_847l7"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(388, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7jap"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(485, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ku7b"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(582, 0, 97, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_38l1g"]
+atlas = ExtResource("27_0qwwm")
+region = Rect2(679, 0, 97, 85)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkv2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlb6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73823")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqjpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2db5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_847l7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7jap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ku7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38l1g")
+}],
+"loop": true,
+"name": &"Pil",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6xl0"]
+radius = 6.0
+
+[sub_resource type="PackedScene" id="PackedScene_t4umt"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("Pil", "scale", "collision_layer", "script", "Area2D", "AnimatedSprite2D", "sprite_frames", "animation", "autoplay", "AnimatedSprite2D2", "CollisionShape2D", "shape"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 4, 0, -1, 3, 1, 0, 2, 1, 3, 2, 0, 0, 0, 5, 5, -1, 4, 1, 0, 6, 3, 7, 4, 8, 5, 0, 0, 0, 5, 9, -1, 2, 6, 3, 7, 4, 0, 0, 0, 10, 10, -1, 1, 11, 6, 0),
+"variants": [Vector2(0.1, 0.1), 2, ExtResource("26_x7jkp"), SubResource("SpriteFrames_jkv2x"), &"Pil", "Pil", SubResource("CircleShape2D_o6xl0")],
+"version": 3
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_x2xxo")
@@ -243,6 +326,10 @@ script = ExtResource("24_mqh5v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
 position = Vector2(586, 280)
 shape = SubResource("RectangleShape2D_mqh5v")
+
+[node name="Box-health" parent="." instance=ExtResource("25_o7j4k")]
+position = Vector2(184, 356)
+spawnedObject = SubResource("PackedScene_t4umt")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
 [connection signal="body_exited" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_exited"]
