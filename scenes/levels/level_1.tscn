@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=36 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
 [ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
 [ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
-[ext_resource type="Script" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
+[ext_resource type="Script" uid="uid://dsk514lmrk0ek" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
 [ext_resource type="Script" uid="uid://mst17l4njy8d" path="res://scripts/Boundary.gd" id="24_mqh5v"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
@@ -60,6 +60,9 @@ metadata/_custom_type_script = "uid://bl06t6sm325gb"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h2jl"]
 size = Vector2(19.80087, 27.952202)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7o3do"]
+size = Vector2(29, 264)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqh5v"]
 size = Vector2(20, 240)
@@ -360,6 +363,16 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("10_7h2jl")
+
+[node name="Wall" type="Node2D" parent="."]
+position = Vector2(2000, 281)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+position = Vector2(-2057.5, 11)
+shape = SubResource("RectangleShape2D_7o3do")
 
 [node name="boundary" type="StaticBody2D" parent="."]
 collision_layer = 4112
