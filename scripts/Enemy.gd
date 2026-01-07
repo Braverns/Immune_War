@@ -11,6 +11,8 @@ var player
 
 @onready var floorRayCast: RayCast2D = $FloorRayCast2D
 
+@export var speed: float = -80
+
 
 func _ready():
 	$HitBox.body_entered.connect(_on_hitbox_body_entered)
@@ -27,29 +29,30 @@ func _ready():
 func _physics_process(delta):
 	if config == null:
 		push_warning("Enemy spawned WITHOUT config: " + str(self))
-		return  # Jangan lanjut kalau config belum ada
+		return
 
-	velocity += get_gravity() * delta
-	velocity.x = 0
+	# Gravity (Godot 4)
+	velocity.y += get_gravity().y * delta
 
-	# Animation
+	# Gerak horizontal
+	velocity.x = direction * speed
+
+	# Animasi
 	if $AnimatedSprite2D.sprite_frames.has_animation("idle"):
 		$AnimatedSprite2D.play("idle")
-	else:
-		$AnimatedSprite2D.stop()
-		
+
 	if player:
 		var dir_to_player = player.global_position.x - global_position.x
 		$AnimatedSprite2D.flip_h = dir_to_player > 0
+
 	move_and_slide()
 
 	var is_hit_wall = is_on_wall()
 	var is_at_edge = is_on_floor() and not floorRayCast.is_colliding()
 
-	# Cek tabrakan dengan dinding, setelah move_and_slide
 	if is_hit_wall or is_at_edge:
-		direction *= -1  # Balik arah
-		floorRayCast.target_position.x *= -1  # Balik target raycast juga	
+		direction *= -1
+		floorRayCast.target_position.x *= -1
 
 func shoot():
 	if bullet_enemy_scene == null or player == null:

@@ -80,6 +80,9 @@ func register_enemy_kill(enemy: Node) -> void:
 	_enemy_killed += 1
 	enemy_killed_changed.emit(_enemy_killed)
 
+	# call wave
+	enemy_died.emit(enemy)
+
 # ==================================================
 # 🧬 MUTATION SYSTEM (100 COIN)
 # ==================================================
