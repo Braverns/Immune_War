@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t0m5w1sq7si"
-path="res://.godot/imported/Walking Kiri_4_Key 4.png-c55357c0e1a5b92ff276b9f6be99f984.ctex"
+uid="uid://bmfuynpr704nj"
+path="res://.godot/imported/Lompat Kanan_5_Key 5 (Mendarat).png-c2494171ef17454898fd25aec30dd1b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/player_1/Left/Walking Kiri_4_Key 4.png"
-dest_files=["res://.godot/imported/Walking Kiri_4_Key 4.png-c55357c0e1a5b92ff276b9f6be99f984.ctex"]
+source_file="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_5_Key 5 (Mendarat).png"
+dest_files=["res://.godot/imported/Lompat Kanan_5_Key 5 (Mendarat).png-c2494171ef17454898fd25aec30dd1b1.ctex"]
 
 [params]
 

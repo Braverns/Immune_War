@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbwfiohj7t2be"
-path="res://.godot/imported/Idle Kanan_2_In between.png-4e04fde2c21f5e236357d5283400225a.ctex"
+uid="uid://dmsc0kmfach1r"
+path="res://.godot/imported/Idle Kanan_4_In Between.png-e90aa73926687f634d6ffd4a90030cd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/player_1/Idle 'Right/Idle Kanan_2_In between.png"
-dest_files=["res://.godot/imported/Idle Kanan_2_In between.png-4e04fde2c21f5e236357d5283400225a.ctex"]
+source_file="res://assets/sprites/characters/player_1/Idle/Idle Kanan_4_In Between.png"
+dest_files=["res://.godot/imported/Idle Kanan_4_In Between.png-e90aa73926687f634d6ffd4a90030cd1.ctex"]
 
 [params]
 

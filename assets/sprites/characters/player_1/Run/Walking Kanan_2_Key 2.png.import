@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csqh2orky1ms7"
-path="res://.godot/imported/Idle Kanan_3_Key 2.png-53bd153d8a9fc804497e20994183e4b4.ctex"
+uid="uid://b0ut2y3ujalea"
+path="res://.godot/imported/Walking Kanan_2_Key 2.png-df3a635163331f0f71782865c2d82962.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/player_1/Idle 'Right/Idle Kanan_3_Key 2.png"
-dest_files=["res://.godot/imported/Idle Kanan_3_Key 2.png-53bd153d8a9fc804497e20994183e4b4.ctex"]
+source_file="res://assets/sprites/characters/player_1/Run/Walking Kanan_2_Key 2.png"
+dest_files=["res://.godot/imported/Walking Kanan_2_Key 2.png-df3a635163331f0f71782865c2d82962.ctex"]
 
 [params]
 

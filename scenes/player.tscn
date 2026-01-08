@@ -1,11 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://br8ub7waghwlo"]
+[gd_scene load_steps=38 format=3 uid="uid://br8ub7waghwlo"]
 
 [ext_resource type="Script" uid="uid://bn2vkypkgjq53" path="res://scripts/PlayerWithFSM.gd" id="1_d2wvv"]
 [ext_resource type="Script" uid="uid://rvk8tlhrqaft" path="res://scripts/StateMachine.gd" id="2_3v2ag"]
 [ext_resource type="Script" uid="uid://blqpx7qoixrab" path="res://scripts/ObjectPool.gd" id="2_f1ej7"]
 [ext_resource type="Script" uid="uid://cb1igrucceuwb" path="res://scripts/Player_States/PlayerState_Idle.gd" id="3_jej6c"]
 [ext_resource type="PackedScene" uid="uid://cn2uyutplyvwv" path="res://scenes/bullet.tscn" id="3_oprun"]
-[ext_resource type="Texture2D" uid="uid://dw0bnib6f730l" path="res://assets/sprites/characters/player_1/Jump.png" id="3_tuyoq"]
 [ext_resource type="Script" uid="uid://btimd15vdlexx" path="res://scripts/Player_States/PlayerState_Jump.gd" id="4_f1ej7"]
 [ext_resource type="Script" uid="uid://cyqhypxal8kpe" path="res://scripts/Player_States/PlayerState_Knockback.gd" id="5_oprun"]
 [ext_resource type="AudioStream" uid="uid://dnh30ltuop2wj" path="res://assets/audio/sfx_jump.mp3" id="5_qlg0r"]
@@ -14,18 +13,22 @@
 [ext_resource type="Script" uid="uid://dlwx450q3xdj8" path="res://scripts/Player_States/PlayerState_Fall.gd" id="10_a8ls1"]
 [ext_resource type="Texture2D" uid="uid://ctl7tyb16pxr8" path="res://assets/sprites/characters/player_1/Double_Jump.png" id="10_oprun"]
 [ext_resource type="AudioStream" uid="uid://dwvouifxo4c84" path="res://assets/audio/07 - MegamanDamage.wav" id="12_3v2ag"]
-[ext_resource type="Texture2D" uid="uid://de8gd67ga76ob" path="res://assets/sprites/characters/player_1/Fall.png" id="12_qfm1y"]
-[ext_resource type="Texture2D" uid="uid://dgvx1s8fot717" path="res://assets/sprites/characters/player_1/Idle 'Right/Idle Kanan_1_Key 1.png" id="13_ujl30"]
-[ext_resource type="Texture2D" uid="uid://dbwfiohj7t2be" path="res://assets/sprites/characters/player_1/Idle 'Right/Idle Kanan_2_In between.png" id="14_31cv2"]
-[ext_resource type="Texture2D" uid="uid://dwggvdaadrojc" path="res://assets/sprites/characters/player_1/Right/Walking Kanan_1_Key 1.png" id="15_4ni07"]
-[ext_resource type="Texture2D" uid="uid://csqh2orky1ms7" path="res://assets/sprites/characters/player_1/Idle 'Right/Idle Kanan_3_Key 2.png" id="15_pf23h"]
-[ext_resource type="Texture2D" uid="uid://dmsc0kmfach1r" path="res://assets/sprites/characters/player_1/Idle 'Right/Idle Kanan_4_In Between.png" id="16_dt7fs"]
-[ext_resource type="Texture2D" uid="uid://b0ut2y3ujalea" path="res://assets/sprites/characters/player_1/Right/Walking Kanan_2_Key 2.png" id="16_l71n6"]
-[ext_resource type="Texture2D" uid="uid://b7pqmiu6m5j2w" path="res://assets/sprites/characters/player_1/Right/Walking Kanan_3_Key 3.png" id="17_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://dgvx1s8fot717" path="res://assets/sprites/characters/player_1/Idle/Idle Kanan_1_Key 1.png" id="13_ujl30"]
+[ext_resource type="Texture2D" uid="uid://dbwfiohj7t2be" path="res://assets/sprites/characters/player_1/Idle/Idle Kanan_2_In between.png" id="14_31cv2"]
+[ext_resource type="Texture2D" uid="uid://dwggvdaadrojc" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_1_Key 1.png" id="15_4ni07"]
+[ext_resource type="Texture2D" uid="uid://csqh2orky1ms7" path="res://assets/sprites/characters/player_1/Idle/Idle Kanan_3_Key 2.png" id="15_pf23h"]
+[ext_resource type="Texture2D" uid="uid://dmsc0kmfach1r" path="res://assets/sprites/characters/player_1/Idle/Idle Kanan_4_In Between.png" id="16_dt7fs"]
+[ext_resource type="Texture2D" uid="uid://b0ut2y3ujalea" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_2_Key 2.png" id="16_l71n6"]
+[ext_resource type="Texture2D" uid="uid://b7pqmiu6m5j2w" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_3_Key 3.png" id="17_ke2ow"]
+[ext_resource type="Texture2D" uid="uid://bf4d7o26pr1t2" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_1_Key 1 (Normal).png" id="17_wqfne"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="18_fulsm"]
-[ext_resource type="Texture2D" uid="uid://5758ppmqjl6a" path="res://assets/sprites/characters/player_1/Right/Walking Kanan_4_Key 4.png" id="18_ujl30"]
-[ext_resource type="Texture2D" uid="uid://xfrtuqwamvqw" path="res://assets/sprites/characters/player_1/Right/Walking Kanan_5_Key 5.png" id="19_31cv2"]
-[ext_resource type="Texture2D" uid="uid://dripbgyba8x23" path="res://assets/sprites/characters/player_1/Right/Walking Kanan_6_Key 6.png" id="20_pf23h"]
+[ext_resource type="Texture2D" uid="uid://5758ppmqjl6a" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_4_Key 4.png" id="18_ujl30"]
+[ext_resource type="Texture2D" uid="uid://bd301f70jyer0" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_2_Key 2 (Ancang-ancang).png" id="18_wnwbv"]
+[ext_resource type="Texture2D" uid="uid://xfrtuqwamvqw" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_5_Key 5.png" id="19_31cv2"]
+[ext_resource type="Texture2D" uid="uid://cght75e1jvid2" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_3_Key 3 (Melayang).png" id="19_gl8cc"]
+[ext_resource type="Texture2D" uid="uid://dgdbx72n0woao" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_4_Key 4 (Bersiap mendarat).png" id="20_487ah"]
+[ext_resource type="Texture2D" uid="uid://dripbgyba8x23" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_6_Key 6.png" id="20_pf23h"]
+[ext_resource type="Texture2D" uid="uid://bmfuynpr704nj" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_5_Key 5 (Mendarat).png" id="21_md1ol"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
 radius = 8.0
@@ -82,7 +85,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_qfm1y")
+"texture": ExtResource("20_487ah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_md1ol")
 }],
 "loop": true,
 "name": &"fall",
@@ -107,7 +113,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_tuyoq")
+"texture": ExtResource("17_wqfne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_wnwbv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_gl8cc")
 }],
 "loop": false,
 "name": &"jump",
@@ -172,9 +184,9 @@ position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_tefeu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.043, 0.049)
 sprite_frames = SubResource("SpriteFrames_a8y0u")
-animation = &"idle"
+animation = &"jump"
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_qlg0r")

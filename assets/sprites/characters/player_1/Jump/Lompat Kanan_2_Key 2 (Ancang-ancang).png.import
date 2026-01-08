@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhgr8sg1o2scu"
-path="res://.godot/imported/Walking Kiri_1_Key 1.png-a3d132baeed5079d748722916d1778d4.ctex"
+uid="uid://bd301f70jyer0"
+path="res://.godot/imported/Lompat Kanan_2_Key 2 (Ancang-ancang).png-594a66abf5c617325c1e9b93693c99d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/characters/player_1/Left/Walking Kiri_1_Key 1.png"
-dest_files=["res://.godot/imported/Walking Kiri_1_Key 1.png-a3d132baeed5079d748722916d1778d4.ctex"]
+source_file="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_2_Key 2 (Ancang-ancang).png"
+dest_files=["res://.godot/imported/Lompat Kanan_2_Key 2 (Ancang-ancang).png-594a66abf5c617325c1e9b93693c99d3.ctex"]
 
 [params]
 
