@@ -19,7 +19,11 @@ func activate():
 	spawned = 0
 	_spawn_enemy()
 
-func _on_enemy_died(enemy: Node):
+func _on_enemy_died(enemy: Node, spawner: Node):
+	# 🔥 FILTER PALING PENTING
+	if spawner != self:
+		return
+
 	if not active:
 		return
 
@@ -37,5 +41,8 @@ func _spawn_enemy():
 	ene.global_position = global_position
 	ene.config = enemy_config
 
+	# 🔥 KUNCI UTAMA
+	ene.spawner_owner = self
+
 	get_tree().current_scene.call_deferred("add_child", ene)
-	spawned += 1 
+	spawned += 1

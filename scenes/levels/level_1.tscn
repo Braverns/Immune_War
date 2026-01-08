@@ -11,7 +11,7 @@
 [ext_resource type="TileSet" uid="uid://c8iqsa6h4c4qc" path="res://assets/ground_tileset.tres" id="8_x2fux"]
 [ext_resource type="Texture2D" uid="uid://cq0egysdishyh" path="res://assets/sprites/godot tile maps bg.png" id="9_7o3do"]
 [ext_resource type="PackedScene" uid="uid://bhyiee5tcg8c8" path="res://scenes/coin.tscn" id="9_s7g0b"]
-[ext_resource type="TileSet" uid="uid://bn3ycwtx6v2m" path="res://assets/ground.tres" id="10_7h2jl"]
+[ext_resource type="TileSet" uid="uid://dcb3d8pn38yqy" path="res://assets/ground.tres" id="10_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://il5orj3737qt" path="res://scenes/spike.tscn" id="10_mmfjm"]
 [ext_resource type="PackedScene" uid="uid://d4nyvexhfh5hv" path="res://scenes/trophy.tscn" id="11_k8ld0"]
 [ext_resource type="PackedScene" uid="uid://bbolwh6u3jwcd" path="res://scenes/box.tscn" id="12_mbb35"]
@@ -23,8 +23,8 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
 [ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
 [ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
-[ext_resource type="Script" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
-[ext_resource type="Script" uid="uid://mst17l4njy8d" path="res://scripts/Boundary.gd" id="24_mqh5v"]
+[ext_resource type="Script" uid="uid://dsk514lmrk0ek" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
+[ext_resource type="Script" path="res://scripts/Boundary.gd" id="24_mqh5v"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
 resource_name = "Objects"
@@ -329,13 +329,17 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 position = Vector2(418, 382)
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
-spawn_interval = 2.0
+
+[node name="SpawnerEnemy2" parent="SpawnerEnemyManager/fase0" instance=ExtResource("20_ndtll")]
+position = Vector2(418, 217)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase0"]
 position = Vector2(6, 318)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
-spawner_path = NodePath("../SpawnerEnemy")
+spawner_paths = Array[NodePath]([NodePath("../SpawnerEnemy"), NodePath("../SpawnerEnemy2")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase0/Spawner-Trigger"]
 position = Vector2(0.09956455, -3.976101)
@@ -346,13 +350,11 @@ shape = SubResource("RectangleShape2D_7h2jl")
 [node name="SpawnerEnemy" parent="SpawnerEnemyManager/fase1" instance=ExtResource("20_ndtll")]
 position = Vector2(1320, 369)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_interval = 2.0
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase1"]
 position = Vector2(6, 318)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
-spawner_path = NodePath("../SpawnerEnemy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase1/Spawner-Trigger"]
 position = Vector2(2604.5813, -4.544861)

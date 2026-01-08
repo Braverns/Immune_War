@@ -1,18 +1,22 @@
 extends Area2D
 
-@export var spawner_path: NodePath
-@onready var spawner = get_node(spawner_path)
+@export var spawner_paths: Array[NodePath] = []
+var spawners: Array = []
 
 func _ready():
 	body_entered.connect(_on_body_entered)
-	#print("[Trigger] READY")
+
+	# Ambil semua spawner dari path
+	for path in spawner_paths:
+		var spawner = get_node_or_null(path)
+		if spawner:
+			spawners.append(spawner)
+		else:
+			push_warning("Spawner tidak ditemukan: %s" % path)
 
 func _on_body_entered(body):
-	#print("[Trigger] body masuk:", body.name)
-
 	if body.is_in_group("Player"):
-		#print("[Trigger] PLAYER TERDETEKSI ")
-		spawner.activate()
+		for spawner in spawners:
+			spawner.activate()
+		
 		queue_free()
-	#else:
-		#print("[Trigger] BUKAN PLAYER  | groups:", body.get_groups())

@@ -13,6 +13,7 @@ var player
 
 @export var speed: float = -80
 
+var spawner_owner: Node = null
 
 func _ready():
 	$HitBox.body_entered.connect(_on_hitbox_body_entered)
@@ -90,6 +91,7 @@ func die():
 	Global.register_enemy_kill(self)
 	Global.add_coins(1)
 	queue_free()
+
 
 
 func _on_enemy_damaged(enemy: Node, damage: int) -> void:
