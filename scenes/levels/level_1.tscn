@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
 [ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
 [ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
-[ext_resource type="Script" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
+[ext_resource type="Script" uid="uid://dsk514lmrk0ek" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
 [ext_resource type="Script" uid="uid://mst17l4njy8d" path="res://scripts/Boundary.gd" id="24_mqh5v"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
