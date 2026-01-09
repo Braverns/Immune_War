@@ -102,7 +102,7 @@ const NORMAL_BULLET_SPEED := 1000
 
 const MUTATION_FIRE_RATE := 0.1
 const MUTATION_BULLET_SPEED := 1200
-const MUTATION_AMMO_MAX := 45
+const MUTATION_AMMO_MAX := 60
 
 # ==================================================
 # COIN HANDLER (SATU-SATUNYA)
