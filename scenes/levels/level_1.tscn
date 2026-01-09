@@ -659,7 +659,7 @@ shape = SubResource("RectangleShape2D_7h2jl")
 position = Vector2(3064, -240)
 enemy_scene = ExtResource("20_mqh5v")
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 4
+spawn_count = 3
 
 [node name="5SpawnerEnemy6" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3123, -254)
@@ -681,22 +681,22 @@ spawn_count = 4
 [node name="3SpawnerEnemy4" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3304, -392)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 6
+spawn_count = 4
 
 [node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3217, -392)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 6
+spawn_count = 4
 
 [node name="4SpawnerEnemy4" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2762, -414)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 6
+spawn_count = 4
 
 [node name="4SpawnerEnemy5" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2816, -414)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 5
+spawn_count = 4
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase5"]
 position = Vector2(1782.0001, -432)
