@@ -44,7 +44,7 @@ signal coins_changed(new_coins)
 signal lives_changed(new_lives)
 signal game_over()
 signal trophy_collected()
-signal enemy_died(enemy: Node)
+signal enemy_died(enemy: Node, spawner: Node)
 signal box_destroyed(box: Node)
 signal enemy_damaged(enemy: Node, damage: int)
 signal enemy_killed_changed(total: int)
@@ -79,6 +79,10 @@ func trigger_trophy_collected() -> void:
 func register_enemy_kill(enemy: Node) -> void:
 	_enemy_killed += 1
 	enemy_killed_changed.emit(_enemy_killed)
+
+	# call wave
+	enemy_died.emit(enemy, enemy.spawner_owner)
+
 
 # ==================================================
 # 🧬 MUTATION SYSTEM (100 COIN)
