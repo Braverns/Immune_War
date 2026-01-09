@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=34 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -309,7 +309,6 @@ spawn_count = 3
 
 [node name="SpawnerEnemy2" parent="SpawnerEnemyManager/fase1" instance=ExtResource("20_ndtll")]
 position = Vector2(419, 209)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
@@ -327,7 +326,6 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan1" instance=ExtResource("20_ndtll")]
 position = Vector2(852, 217)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
@@ -345,7 +343,6 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
 position = Vector2(1981, 191)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
@@ -354,7 +351,6 @@ enemy_config = SubResource("Resource_7h2jl")
 
 [node name="SpawnerEnemy4" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
 position = Vector2(2031, 341)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
@@ -372,19 +368,16 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
 position = Vector2(2356, -143)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
 position = Vector2(2274, 3)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="SpawnerEnemy4" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
 position = Vector2(2354, 17)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
@@ -411,22 +404,18 @@ spawn_count = 1
 
 [node name="3SpawnerEnemy6" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1538, 276)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="4SpawnerEnemy2" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1309, 189)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="5SpawnerEnemy3" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1152, 243)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="6SpawnerEnemy4" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1093, 372)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase2"]
@@ -448,13 +437,11 @@ spawn_count = 4
 
 [node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase3" instance=ExtResource("20_ndtll")]
 position = Vector2(2310, 196)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 4
 
 [node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase3" instance=ExtResource("20_ndtll")]
 position = Vector2(2206, 212)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 4
 
@@ -472,25 +459,21 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="1SpawnerEnemy5" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
 position = Vector2(2586, -269)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
 [node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
 position = Vector2(2613, -408)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
 [node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
 position = Vector2(2324, -313)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
 [node name="4SpawnerEnemy4" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
 position = Vector2(2311, -421)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
@@ -513,7 +496,6 @@ spawn_count = 4
 
 [node name="5SpawnerEnemy6" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3123, -254)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
@@ -524,13 +506,11 @@ spawn_count = 6
 
 [node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3217, -392)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 10
 
 [node name="4SpawnerEnemy4" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2762, -414)
-enemy_scene = ExtResource("23_o7j4k")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 10
 
