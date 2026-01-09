@@ -77,9 +77,6 @@ func _on_body_entered(body: Node) -> void:
 	elif body.is_in_group("Medkit"):
 		kill()  # pil akan handle spawn heart sendiri
 
-	elif body is TileMapLayer or body is StaticBody2D:
-		kill()
-
 	# Jika kena Dinding (TileMap) atau Lantai (StaticBody)
 	#elif body is TileMapLayer or body is StaticBody2D:
 		#kill()

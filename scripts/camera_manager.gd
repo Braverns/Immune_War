@@ -58,7 +58,7 @@ func update_camera() -> void:
 		2:
 			camera_2.priority = 1
 		3:
-			camera_3.priority = 1
+ddddd			camera_3.priority = 1
 		4:
 			camera_4.priority = 1
 		5:
