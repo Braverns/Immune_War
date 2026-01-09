@@ -42,6 +42,7 @@ var next_level: int = 2
 # ==================================================
 signal coins_changed(new_coins)
 signal lives_changed(new_lives)
+signal mutation_ammo_changed(current_ammo)
 signal game_over()
 signal trophy_collected()
 signal enemy_died(enemy: Node, spawner: Node)
@@ -96,7 +97,7 @@ var mutation_ammo := 0
 # ==================================================
 # WEAPON CONFIG
 # ==================================================
-const NORMAL_FIRE_RATE := 0.5
+const NORMAL_FIRE_RATE := 0.3
 const NORMAL_BULLET_SPEED := 1000
 
 const MUTATION_FIRE_RATE := 0.1
@@ -146,6 +147,7 @@ func consume_mutation_ammo():
 		return
 
 	mutation_ammo -= 1
+	mutation_ammo_changed.emit(mutation_ammo)
 	if mutation_ammo <= 0:
 		end_mutation()
 

@@ -201,7 +201,7 @@ move_speed = 200.0
 position = Vector2(279, 393)
 
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
-position = Vector2(1633, -10)
+position = Vector2(3448, -296)
 
 [node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "camera_0", "camera_1", "camera_2", "camera_3", "camera_4", "camera_5", "camera_6", "camera_7")]
 script = ExtResource("18_np2pn")
@@ -464,12 +464,12 @@ shape = SubResource("RectangleShape2D_7h2jl")
 [node name="selingan3" type="Node" parent="SpawnerEnemyManager"]
 
 [node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
-position = Vector2(2363, -122)
+position = Vector2(2368, -128)
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
-position = Vector2(2274, 3)
+position = Vector2(2336, -128)
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
@@ -659,7 +659,27 @@ position = Vector2(1830, 214)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box4" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(2351, -44)
+position = Vector2(2280, -88)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box5" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(3184, -266)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box6" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(3104, -346)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box7" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2560, -360)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box8" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2872, -301)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box9" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2168, 264)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
