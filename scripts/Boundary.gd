@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 @export var required_kills: int = 3
-@onready var collision := $CollisionShape2D
+@onready var collision: CollisionShape2D = get_node_or_null("boundary_1/CollisionShape2D")
 
 
 func _ready() -> void:
@@ -22,6 +22,9 @@ func _check_open(total: int) -> void:
 
 
 func open_boundary() -> void:
+	if collision == null:
+		return
 	if collision.disabled:
 		return
+
 	collision.set_deferred("disabled", true)

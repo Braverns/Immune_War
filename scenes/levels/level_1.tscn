@@ -732,9 +732,53 @@ shape = SubResource("RectangleShape2D_7o3do")
 collision_layer = 4112
 collision_mask = 5
 script = ExtResource("24_mqh5v")
+required_kills = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
+[node name="boundary_1" type="CollisionShape2D" parent="boundary"]
 position = Vector2(586, 281)
+shape = SubResource("RectangleShape2D_mqh5v")
+
+[node name="boundary2" type="StaticBody2D" parent="."]
+position = Vector2(200, 0)
+collision_layer = 4112
+collision_mask = 5
+script = ExtResource("24_mqh5v")
+required_kills = 16
+
+[node name="boundary_1" type="CollisionShape2D" parent="boundary2"]
+position = Vector2(1525, 286)
+shape = SubResource("RectangleShape2D_mqh5v")
+
+[node name="boundary3" type="StaticBody2D" parent="."]
+position = Vector2(20, 0)
+collision_layer = 4112
+collision_mask = 5
+script = ExtResource("24_mqh5v")
+required_kills = 36
+
+[node name="boundary_1" type="CollisionShape2D" parent="boundary3"]
+position = Vector2(2314, 163)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_mqh5v")
+
+[node name="boundary4" type="StaticBody2D" parent="."]
+collision_layer = 4112
+collision_mask = 5
+script = ExtResource("24_mqh5v")
+required_kills = 55
+
+[node name="boundary_1" type="CollisionShape2D" parent="boundary4"]
+position = Vector2(2714, -311)
+shape = SubResource("RectangleShape2D_mqh5v")
+
+[node name="boundary5" type="StaticBody2D" parent="."]
+collision_layer = 4112
+collision_mask = 5
+script = ExtResource("24_mqh5v")
+required_kills = 85
+
+[node name="boundary_1" type="CollisionShape2D" parent="boundary5"]
+position = Vector2(3358, -311)
 shape = SubResource("RectangleShape2D_mqh5v")
 
 [node name="Box2" parent="." instance=ExtResource("12_mbb35")]
