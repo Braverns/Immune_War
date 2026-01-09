@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func _on_coins_changed(new_coins: int) -> void:
-	coin_label.text = "Coins: %d" % new_coins
+	coin_label.text = "DNA : %d" % new_coins
 
 
 func _on_lives_changed(new_lives: int) -> void:
