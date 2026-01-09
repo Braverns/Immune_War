@@ -10,32 +10,32 @@ enum EnemyMode {
 }
 
 @export var enemy_mode: EnemyMode = EnemyMode.MOVE
-
 @export var config: EnemyConfig
-var direction = -1  # Mulai bergerak ke kiri
+
+var direction := -1
 var player
 @export var health: int = 5
 
 @export var bullet_enemy_scene: PackedScene
 @export var dna_scene: PackedScene
-#buat narik bulletenemy.tscn dari inspector 
 
 @onready var floorRayCast: RayCast2D = $FloorRayCast2D
 
-@export var speed: float = -80
+@export var speed: float = 80
 
 var spawner_owner: Node = null
+
 
 func _ready():
 	$HitBox.body_entered.connect(_on_hitbox_body_entered)
 	$Timer.timeout.connect(shoot)
-	
 	Global.enemy_damaged.connect(_on_enemy_damaged)
 
 	var players = get_tree().get_nodes_in_group("Player")
 	if players.size() > 0:
 		player = players[0]
 
+	floorRayCast.enabled = true
 
 
 func _physics_process(delta):
@@ -43,8 +43,10 @@ func _physics_process(delta):
 		push_warning("Enemy spawned WITHOUT config: " + str(self))
 		return
 
-	# Gravity
-	velocity.y += get_gravity().y * delta
+	# =========================
+	# GRAVITY
+	# =========================
+	velocity += get_gravity() * delta
 
 	# =========================
 	# MODE LOGIC
@@ -56,19 +58,24 @@ func _physics_process(delta):
 		EnemyMode.MOVE:
 			velocity.x = direction * speed
 
-	# Animasi
+	# =========================
+	# ANIMATION
+	# =========================
 	if $AnimatedSprite2D.sprite_frames.has_animation("idle"):
 		$AnimatedSprite2D.play("idle")
 
-	# Hadap ke player (tetap aktif di dua mode)
+	# Hadap ke player (tidak mempengaruhi arah jalan)
 	if player:
 		var dir_to_player = player.global_position.x - global_position.x
 		$AnimatedSprite2D.flip_h = dir_to_player > 0
 
+	# =========================
+	# MOVE
+	# =========================
 	move_and_slide()
 
 	# =========================
-	# LOGIC BALIK ARAH (HANYA MOVE)
+	# RAYCAST LOGIC (SEPERTI CONTOH KEDUA)
 	# =========================
 	if enemy_mode == EnemyMode.MOVE:
 		var is_hit_wall = is_on_wall()
@@ -77,6 +84,7 @@ func _physics_process(delta):
 		if is_hit_wall or is_at_edge:
 			direction *= -1
 			floorRayCast.target_position.x *= -1
+
 
 func shoot():
 	if bullet_enemy_scene == null or player == null:
@@ -87,7 +95,6 @@ func shoot():
 
 	get_tree().current_scene.add_child(bullet)
 	bullet.launch(global_position, dir)
-	print("shoot dipanggil")
 
 
 func _on_hitbox_body_entered(body):
@@ -95,7 +102,6 @@ func _on_hitbox_body_entered(body):
 		Global.lose_life(config.damage)
 		var hit_player := body as PlayerWithFSM
 		hit_player.apply_knockback(global_position)
-	
 
 
 func die():

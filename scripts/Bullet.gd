@@ -70,11 +70,18 @@ func launch(target_pos: Vector2, dir: Vector2):
 	rotation = direction.angle()
 
 func _on_body_entered(body: Node) -> void:
-	# Jika kena Enemy
 	if body.is_in_group("Enemy"):
 		Global.enemy_damaged.emit(body, 1)
 		kill()
 
-	# Jika kena Dinding (TileMap) atau Lantai (StaticBody)
+	elif body.is_in_group("Medkit"):
+		kill()  # pil akan handle spawn heart sendiri
+
 	elif body is TileMapLayer or body is StaticBody2D:
+		kill()
+
+	# Jika kena Dinding (TileMap) atau Lantai (StaticBody)
+	#elif body is TileMapLayer or body is StaticBody2D:
+		#kill()
+	elif body is StaticBody2D:
 		kill()

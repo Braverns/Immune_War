@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bse82u7mnakge"]
+
+[ext_resource type="Script" uid="uid://484fqg5vdk1w" path="res://scenes/medkit.gd" id="1_3f3sp"]
+[ext_resource type="Texture2D" uid="uid://csgmp1kccbnoa" path="res://assets/sprites/gui/Godot UI/pill asset.png" id="2_nrowk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tcf3p"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_3f3sp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.0000002, 1.9999996)
+scale = Vector2(0.56249994, 0.62499994)
+texture = ExtResource("2_nrowk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_tcf3p")

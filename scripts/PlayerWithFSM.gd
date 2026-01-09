@@ -90,11 +90,11 @@ func aim_direction() -> Vector2:
 		return last_aim_direction
 
 	# JIKA DILEPAS → IKUT ARAH SPRITE
-	var facing_dir := 1.0
-	if animated_sprite.flip_h:
-		facing_dir = -1.0
+	#var facing_dir := 1.0
+	#if animated_sprite.flip_h:
+		#facing_dir = -1.0
 
-	last_aim_direction = Vector2(facing_dir, 0)
+	#last_aim_direction = Vector2(facing_dir, 0)
 	return last_aim_direction
 
 

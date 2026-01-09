@@ -1,6 +1,6 @@
 class_name BulletEnemy extends Area2D
 
-@export var speed = 600
+@export var speed = 200
 @export var lifetime = 2.0
 
 var currentSpeed := 0.0
@@ -90,7 +90,7 @@ func _on_body_entered(body: Node) -> void:
 		kill()
 		
 	# 2. Cek jika kena Dinding/Lantai
-	elif body is TileMapLayer or body is StaticBody2D:
+	elif body is StaticBody2D:
 		kill()
 
 	# :: Option A ::
