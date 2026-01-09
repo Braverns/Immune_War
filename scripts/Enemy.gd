@@ -11,6 +11,7 @@ enum EnemyMode {
 
 @export var enemy_mode: EnemyMode = EnemyMode.MOVE
 @export var config: EnemyConfig
+@onready var weapon_sprite: AnimatedSprite2D = get_node_or_null("WeaponSprite")
 
 var direction := -1
 var player
@@ -41,7 +42,8 @@ func _ready():
 		player = players[0]
 
 	floorRayCast.enabled = true
-
+	if weapon_sprite:
+		weapon_sprite.visible = false
 
 func _physics_process(delta):
 	if config == null:
@@ -102,12 +104,25 @@ func shoot():
 		return
 	if bullet_enemy_scene == null or player == null:
 		return
+	if weapon_sprite == null:
+		return  # enemy ini tidak punya senjata
+
+	weapon_sprite.visible = true
+	weapon_sprite.play("shoot")
+
+	await get_tree().process_frame
+	await get_tree().process_frame
+	await get_tree().process_frame
 
 	var bullet = bullet_enemy_scene.instantiate()
 	var dir = (player.global_position - global_position).normalized()
 
 	get_tree().current_scene.add_child(bullet)
 	bullet.launch(global_position, dir)
+
+	await weapon_sprite.animation_finished
+	weapon_sprite.visible = false
+
 
 
 func _on_hitbox_body_entered(body):
