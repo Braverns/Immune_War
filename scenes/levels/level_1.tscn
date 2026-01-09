@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=35 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -64,6 +64,8 @@ size = Vector2(29, 264)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqh5v"]
 size = Vector2(20, 240)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7h2jl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_x2xxo")
@@ -200,10 +202,6 @@ position = Vector2(279, 393)
 
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
 position = Vector2(1616, 264)
-
-[node name="Box" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(317, 347)
-spawnedObject = ExtResource("9_s7g0b")
 
 [node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "camera_0", "camera_1", "camera_2")]
 script = ExtResource("18_np2pn")
@@ -552,6 +550,18 @@ script = ExtResource("24_mqh5v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundary"]
 position = Vector2(586, 281)
 shape = SubResource("RectangleShape2D_mqh5v")
+
+[node name="Box2" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(824, 378)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box3" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(1830, 214)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box4" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2351, -44)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
 [connection signal="body_exited" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_exited"]

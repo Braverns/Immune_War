@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://l8t1d0yolcc8"]
+
+[ext_resource type="Script" uid="uid://dvv2mhpmbyq62" path="res://scenes/Heart.gd" id="1_1cpwx"]
+[ext_resource type="Texture2D" uid="uid://cmg5l5ydsmdbp" path="res://assets/sprites/gui/Godot UI/Heart-removebg-preview.png" id="2_mvrql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jbxta"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_1cpwx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.5762787e-07, -8.940697e-07)
+scale = Vector2(0.055555556, 0.055555552)
+texture = ExtResource("2_mvrql")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jbxta")

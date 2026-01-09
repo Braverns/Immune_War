@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbolwh6u3jwcd"]
+[gd_scene load_steps=12 format=3 uid="uid://bbolwh6u3jwcd"]
 
 [ext_resource type="Script" uid="uid://mtowduxkarxc" path="res://scripts/Box.gd" id="1_telwu"]
-[ext_resource type="Texture2D" uid="uid://c3up44jdciai4" path="res://assets/sprites/props/Boxes/1_Idle.png" id="2_brpd5"]
+[ext_resource type="PackedScene" uid="uid://l8t1d0yolcc8" path="res://scenes/Heart.tscn" id="2_brpd5"]
+[ext_resource type="Texture2D" uid="uid://csgmp1kccbnoa" path="res://assets/sprites/gui/Godot UI/pill asset.png" id="3_dijgj"]
 [ext_resource type="Texture2D" uid="uid://clp1pdkd0luht" path="res://assets/sprites/props/Boxes/1_Hit.png" id="3_ry43h"]
 [ext_resource type="Texture2D" uid="uid://bipwsmdsuqx8i" path="res://assets/sprites/props/Boxes/1_Break.png" id="4_dijgj"]
 
@@ -21,7 +22,7 @@ region = Rect2(64, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_brpd5")
+"texture": ExtResource("3_dijgj")
 }],
 "loop": false,
 "name": &"default",
@@ -55,8 +56,11 @@ size = Vector2(22, 4)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("1_telwu")
+spawnedObject = ExtResource("2_brpd5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_y6deb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -65,9 +69,19 @@ shape = SubResource("RectangleShape2D_gqmmt")
 debug_color = Color(4.042983e-06, 0.6815743, 0.7962333, 0.41960785)
 
 [node name="HurtBox" type="Area2D" parent="."]
+position = Vector2(0, -21)
 collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_0ld40")
+debug_color = Color(0.91309905, 0.07288257, 0.59803796, 0.41960785)
+
+[node name="HurtBox2" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox2"]
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_0ld40")
 debug_color = Color(0.91309905, 0.07288257, 0.59803796, 0.41960785)
