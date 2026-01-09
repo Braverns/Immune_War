@@ -110,7 +110,13 @@ func shoot() -> void:
 		shoot_cooldown = Global.MUTATION_FIRE_RATE if Global.is_mutation_active else Global.NORMAL_FIRE_RATE
 		
 		# LAUNCH BULLET
-		bullet.launch(global_position, aim_direction())
+		var aim := aim_direction()
+
+		var spawn_pos := global_position
+		spawn_pos.x += 30 * sign(aim.x)   # ← ATUR X DI SINI
+		spawn_pos.y += -10                 # ← ATUR Y DI SINI
+
+		bullet.launch(spawn_pos, aim)
 		
 		# KURANGI AMMO JIKA MUTASI
 		if Global.is_mutation_active:
