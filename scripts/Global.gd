@@ -4,7 +4,7 @@ extends Node
 # CONSTANTS
 # ==================================================
 const COINS_FOR_LIFE = 10
-const STARTING_LIVES = 10
+const STARTING_LIVES = 12
 const STARTING_COINS = 0
 
 # ==================================================

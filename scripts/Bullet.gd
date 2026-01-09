@@ -1,7 +1,7 @@
 class_name Bullet extends Area2D
 
-@export var speed = 600
-@export var lifetime = 0.3
+@export var speed = 1000
+@export var lifetime = 0.5
 
 var currentSpeed := 0.0
 var remainingLifetime : float = 0.0

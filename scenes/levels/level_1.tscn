@@ -743,16 +743,28 @@ physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 position = Vector2(1830, 214)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
+[node name="Box10" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(1830, 296)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box10" parent="Box10" instance=ExtResource("12_mbb35")]
+position = Vector2(-430, 16)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
 [node name="Box4" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(2280, -88)
+position = Vector2(2280, -200)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box5" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(3184, -266)
+position = Vector2(2952, -296)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box5" parent="Box5" instance=ExtResource("12_mbb35")]
+position = Vector2(216, 27)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box6" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(3104, -346)
+position = Vector2(3184, -346)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box7" parent="." instance=ExtResource("12_mbb35")]
@@ -760,7 +772,7 @@ position = Vector2(2560, -360)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box8" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(2872, -301)
+position = Vector2(2872, -362)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box9" parent="." instance=ExtResource("12_mbb35")]
