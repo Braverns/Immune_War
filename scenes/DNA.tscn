@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ds3oekqutgc8r"]
+
+[ext_resource type="Texture2D" uid="uid://t16cfdcphcfd" path="res://assets/sprites/props/Gems/dna asset.png" id="1_ghjf7"]
+[ext_resource type="Script" uid="uid://bp8vqtadqouvr" path="res://scripts/DNA.gd" id="1_w7sy6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u2ehl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w7sy6"]
+
+[node name="Dna" type="Area2D" groups=["Player"]]
+collision_mask = 21
+script = ExtResource("1_w7sy6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_u2ehl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ghjf7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w7sy6")

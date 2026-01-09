@@ -7,6 +7,7 @@ var player
 @export var health: int = 5
 
 @export var bullet_enemy_scene: PackedScene
+@export var dna_scene: PackedScene
 #buat narik bulletenemy.tscn dari inspector 
 
 @onready var floorRayCast: RayCast2D = $FloorRayCast2D
@@ -72,6 +73,13 @@ func _on_hitbox_body_entered(body):
 
 
 func die():
+	# Cek peluang 40% (0.4)
+	if randf() <= 0.4:
+		spawn_dna()
+	
+	Global.register_enemy_kill(self)
+	# Global.add_coins(1) # <-- Hapus/Matikan ini karena diganti DNA
+	queue_free()
 	# Option A - self manage sequences
 	# $HurtSFX.play()
 	# visible = false
@@ -97,3 +105,13 @@ func _on_enemy_damaged(enemy: Node, damage: int) -> void:
 
 	if health <= 0:
 		die()
+		
+func spawn_dna():
+	# Cek biar gak error kalau lupa isi inspector
+	if dna_scene == null:
+		return
+		
+	var dna = dna_scene.instantiate()
+	dna.global_position = global_position 
+	# Gunakan call_deferred agar aman
+	get_tree().current_scene.call_deferred("add_child", dna)
