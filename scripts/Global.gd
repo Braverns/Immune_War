@@ -118,6 +118,18 @@ func add_coins(amount: int) -> void:
 		mutation_points += amount
 		if mutation_points >= MUTATION_THRESHOLD:
 			start_mutation()
+			
+# Fungsi khusus untuk menangani DNA
+func add_dna(amount: int) -> void:
+	if is_mutation_active:
+		return
+
+	mutation_points += amount
+	print("DNA Terkumpul: ", mutation_points)
+	
+	# Cek syarat mutasi
+	if mutation_points >= MUTATION_THRESHOLD:
+		start_mutation()
 
 # ==================================================
 # MUTATION LOGIC

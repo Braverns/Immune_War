@@ -13,16 +13,16 @@ func _ready() -> void:
 	Global.coins_changed.connect(_on_coins_changed)
 	Global.lives_changed.connect(_on_lives_changed)
 	
-	$GameOverPanel/VBoxContainer/MenuButton.pressed.connect(_on_menu_button_pressed)
-	$GameOverPanel/VBoxContainer/ReplayButton.pressed.connect(_on_replay_button_pressed)
+	$GameOverPanel/HBoxContainer/MenuButton.pressed.connect(_on_menu_button_pressed)
+	$GameOverPanel/HBoxContainer/ReplayButton.pressed.connect(_on_replay_button_pressed)
 	$LevelCompletedPanel/Completed.pressed.connect(_on_next_level_completed_pressed)
-
+	$LevelCompletedPanel/ReplayButton.pressed.connect(_on_replay_button_pressed)
 	reset_ui()
 	
 
 
 func _on_coins_changed(new_coins: int) -> void:
-	coin_label.text = "Coins: %d" % new_coins
+	coin_label.text = "DNA : %d" % new_coins
 
 
 func _on_lives_changed(new_lives: int) -> void:
