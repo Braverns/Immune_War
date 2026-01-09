@@ -8,6 +8,7 @@ extends Node
 @export var camera_4: PhantomCamera2D
 @export var camera_5: PhantomCamera2D
 @export var camera_6: PhantomCamera2D
+@export var camera_7: PhantomCamera2D
 
 var current_fase: int = -1
 var last_fase: int = -1
@@ -48,6 +49,8 @@ func update_camera() -> void:
 		camera_5.priority = 0
 	if camera_6:
 		camera_6.priority = 0
+	if camera_7:
+		camera_7.priority = 0
 	
 
 	match current_fase:
@@ -65,6 +68,8 @@ func update_camera() -> void:
 			if camera_5: camera_5.priority = 1
 		6:
 			if camera_6: camera_6.priority = 1
+		7:
+			if camera_7: camera_7.priority = 1
 
 		-1:
 			match last_fase:
@@ -140,3 +145,12 @@ func _on_selingan_2_body_entered(body: Node2D) -> void:
 func _on_selingan_2_body_exited(body: Node2D) -> void:
 	if body == player:
 		clear_fase(6)
+
+
+func _on_selingan_3_body_entered(body: Node2D) -> void:
+	if body == player:
+		set_fase(7)
+
+func _on_selingan_3_body_exited(body: Node2D) -> void:
+	if body == player:
+		clear_fase(7)

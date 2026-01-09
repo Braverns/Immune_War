@@ -193,7 +193,7 @@ tile_set = ExtResource("8_x2fux")
 tile_set = SubResource("TileSet_jkv2x")
 
 [node name="Player" parent="." instance=ExtResource("16_hjqri")]
-position = Vector2(1054, 397)
+position = Vector2(3082, -203)
 collision_mask = 18
 move_speed = 200.0
 
@@ -203,12 +203,17 @@ position = Vector2(279, 393)
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
 position = Vector2(1633, -10)
 
-[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "camera_0", "camera_1", "camera_2")]
+[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "camera_0", "camera_1", "camera_2", "camera_3", "camera_4", "camera_5", "camera_6", "camera_7")]
 script = ExtResource("18_np2pn")
 player = NodePath("../Player")
 camera_0 = NodePath("CameraNode/fase0/camera0")
 camera_1 = NodePath("CameraNode/selingan1/camera1")
 camera_2 = NodePath("CameraNode/fase2/camera2")
+camera_3 = NodePath("CameraNode/fase3/camera3")
+camera_4 = NodePath("CameraNode/fase4/camera4")
+camera_5 = NodePath("CameraNode/fase5/camera5")
+camera_6 = NodePath("CameraNode/selingan2/camera6")
+camera_7 = NodePath("CameraNode/selingan3/camera7")
 
 [node name="CameraNode" type="StaticBody2D" parent="CameraManager"]
 
@@ -235,7 +240,7 @@ shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="camera1" type="Node2D" parent="CameraManager/CameraNode/selingan1" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1054, 317)
+position = Vector2(3082, -283)
 script = ExtResource("19_gmpev")
 follow_mode = 5
 follow_target = NodePath("../../../../Player")
@@ -261,10 +266,6 @@ shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="CameraManager/CameraNode/selingan1"]
 position = Vector2(2057, 278)
-shape = SubResource("RectangleShape2D_mkypq")
-
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="CameraManager/CameraNode/selingan1"]
-position = Vector2(3357, -316)
 shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="fase2" type="Area2D" parent="CameraManager/CameraNode"]
@@ -293,11 +294,6 @@ position = Vector2(2141, 301)
 rotation = 0.82030475
 shape = SubResource("SegmentShape2D_gmpev")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager/CameraNode/fase3"]
-position = Vector2(2285, 205.99994)
-rotation = 2.1066124
-shape = SubResource("SegmentShape2D_gmpev")
-
 [node name="camera3" type="Node2D" parent="CameraManager/CameraNode/fase3"]
 position = Vector2(2296, 302)
 script = ExtResource("19_gmpev")
@@ -306,6 +302,11 @@ snap_to_pixel = true
 tween_resource = SubResource("Resource_gmpev")
 host_layers = 5
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager/CameraNode/fase3"]
+position = Vector2(2285, 205.99994)
+rotation = 2.1066124
+shape = SubResource("SegmentShape2D_gmpev")
 
 [node name="fase4" type="Area2D" parent="CameraManager/CameraNode"]
 
@@ -335,7 +336,7 @@ rotation = 0.82030475
 shape = SubResource("SegmentShape2D_gmpev")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="CameraManager/CameraNode/fase5"]
-position = Vector2(3289.9998, -286.99994)
+position = Vector2(3284.9998, -295.99994)
 rotation = -0.32463124
 shape = SubResource("SegmentShape2D_gmpev")
 
@@ -356,9 +357,9 @@ shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="camera6" type="Node2D" parent="CameraManager/CameraNode/selingan2" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1054, 317)
+position = Vector2(3082, -283)
 script = ExtResource("19_gmpev")
-follow_mode = 5
+follow_mode = 2
 follow_target = NodePath("../../../../Player")
 zoom = Vector2(1.3, 1.3)
 snap_to_pixel = true
@@ -367,7 +368,29 @@ host_layers = 5
 follow_offset = Vector2(0, -80)
 follow_damping = true
 follow_damping_value = Vector2(0.6, 0.3)
-follow_axis_lock = 1
+dead_zone_width = 0.279
+dead_zone_height = 0.275
+metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
+
+[node name="selingan3" type="Area2D" parent="CameraManager/CameraNode"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager/CameraNode/selingan3"]
+position = Vector2(3358, -308)
+shape = SubResource("RectangleShape2D_mkypq")
+
+[node name="camera7" type="Node2D" parent="CameraManager/CameraNode/selingan3" node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(3082, -283)
+script = ExtResource("19_gmpev")
+follow_mode = 2
+follow_target = NodePath("../../../../Player")
+zoom = Vector2(1.3, 1.3)
+snap_to_pixel = true
+tween_resource = SubResource("Resource_ndtll")
+host_layers = 5
+follow_offset = Vector2(0, -80)
+follow_damping = true
+follow_damping_value = Vector2(0.6, 0.3)
 dead_zone_width = 0.279
 dead_zone_height = 0.275
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -653,3 +676,5 @@ physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 [connection signal="body_exited" from="CameraManager/CameraNode/fase5" to="CameraManager" method="_on_fase_5_body_exited"]
 [connection signal="body_entered" from="CameraManager/CameraNode/selingan2" to="CameraManager" method="_on_selingan_2_body_entered"]
 [connection signal="body_exited" from="CameraManager/CameraNode/selingan2" to="CameraManager" method="_on_selingan_2_body_exited"]
+[connection signal="body_entered" from="CameraManager/CameraNode/selingan3" to="CameraManager" method="_on_selingan_3_body_entered"]
+[connection signal="body_exited" from="CameraManager/CameraNode/selingan3" to="CameraManager" method="_on_selingan_3_body_exited"]
