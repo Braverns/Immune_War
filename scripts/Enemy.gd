@@ -28,7 +28,12 @@ var spawner_owner: Node = null
 
 func _ready():
 	$HitBox.body_entered.connect(_on_hitbox_body_entered)
-	$Timer.timeout.connect(shoot)
+	#$Timer.timeout.connect(shoot)
+	if enemy_mode == EnemyMode.STATIC:
+		$Timer.timeout.connect(shoot)
+	else:
+		$Timer.stop()
+	
 	Global.enemy_damaged.connect(_on_enemy_damaged)
 
 	var players = get_tree().get_nodes_in_group("Player")
@@ -54,9 +59,15 @@ func _physics_process(delta):
 	match enemy_mode:
 		EnemyMode.STATIC:
 			velocity.x = 0
+			if player:
+				var dir_to_player = player.global_position.x - global_position.x
+				if dir_to_player != 0:
+					$AnimatedSprite2D.flip_h = dir_to_player > 0
 
 		EnemyMode.MOVE:
 			velocity.x = direction * speed
+			if direction != 0:
+				$AnimatedSprite2D.flip_h = direction > 0
 
 	# =========================
 	# ANIMATION
@@ -65,9 +76,9 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("idle")
 
 	# Hadap ke player (tidak mempengaruhi arah jalan)
-	if player:
-		var dir_to_player = player.global_position.x - global_position.x
-		$AnimatedSprite2D.flip_h = dir_to_player > 0
+	#if player:
+		#var dir_to_player = player.global_position.x - global_position.x
+		#$AnimatedSprite2D.flip_h = dir_to_player > 0
 
 	# =========================
 	# MOVE
@@ -87,6 +98,8 @@ func _physics_process(delta):
 
 
 func shoot():
+	if enemy_mode == EnemyMode.MOVE:
+		return
 	if bullet_enemy_scene == null or player == null:
 		return
 

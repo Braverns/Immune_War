@@ -1,11 +1,12 @@
 class_name BulletEnemy extends Area2D
 
-@export var speed = 200
-@export var lifetime = 0.8
+@export var speed = 300
+@export var lifetime = 2
 
 var currentSpeed := 0.0
 var remainingLifetime : float = 0.0
 var _frames_since_spawn = 0
+var damage: int = 1
 
 # PAKAI VECTOR UNTUK MENGATUR 8 ARAH (HORISONTAL, VERTIKAL, DIAGONAL)
 var direction: Vector2 = Vector2.ZERO
@@ -21,12 +22,13 @@ func _ready() -> void:
 
 func _on_screen_exited() -> void:
 	print("Bullet exited screen, returning to pool")
+	kill()
 	# await get_tree().process_frame
 	# remainingLifetime = -1
 
 
 func _physics_process(delta):
-	global_position += direction * 400 * delta
+	#global_position += direction * 400 * delta
 	# 4. RE-ENABLE INTERPOLATION (After 1 frame)
 	# We wait 1 frame to ensure the "teleport" frame has fully rendered without smoothing.
 	if _frames_since_spawn < 2:
@@ -52,8 +54,8 @@ func kill():
 
 
 # This function is called by the shooter, NOT the pool
-func launch(target_pos: Vector2, dir: Vector2):
-	print(dir)
+func launch(target_pos: Vector2, dir: Vector2, dmg_amount: int = 1):
+	#print(dir)
 	# 1. FORCE INTERPOLATION OFF
 	# This tells the engine: "For right now, ignore all smoothing. Just draw where I say."
 	physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_OFF
@@ -66,6 +68,7 @@ func launch(target_pos: Vector2, dir: Vector2):
 	# dir -> Vector2
 	currentSpeed = speed
 	direction = dir.normalized()
+	damage = dmg_amount
 	
 	# 2. Teleport & Setup
 	global_position = target_pos
@@ -84,9 +87,18 @@ func launch(target_pos: Vector2, dir: Vector2):
 	
 func _on_body_entered(body: Node) -> void:
 	# 1. Cek jika kena Player
-	if body.name == "Player" or body.is_in_group("Player"):
-		print("Kena Player!")
-		# Masukkan logika kurangi nyawa player di sini
+	#if body.name == "Player" or body.is_in_group("Player"):
+		#print("Kena Player!")
+		## Masukkan logika kurangi nyawa player di sini
+		#kill()
+	if body is PlayerWithFSM:
+		# Kurangi nyawa via Global
+		Global.lose_life(damage)
+		
+		# Efek Knockback (Dorong player)
+		body.apply_knockback(global_position)
+		
+		# Hancurkan peluru
 		kill()
 		
 	# 2. Cek jika kena Dinding/Lantai
