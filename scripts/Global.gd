@@ -4,7 +4,7 @@ extends Node
 # CONSTANTS
 # ==================================================
 const COINS_FOR_LIFE = 10
-const STARTING_LIVES = 3
+const STARTING_LIVES = 100
 const STARTING_COINS = 0
 
 # ==================================================
@@ -89,7 +89,7 @@ func register_enemy_kill(enemy: Node) -> void:
 # 🧬 MUTATION SYSTEM (100 COIN)
 # ==================================================
 var mutation_points := 0
-const MUTATION_THRESHOLD := 1 #syarat coin untuk mutasi
+const MUTATION_THRESHOLD := 4 #syarat coin untuk mutasi
 
 var is_mutation_active := false
 var mutation_ammo := 0

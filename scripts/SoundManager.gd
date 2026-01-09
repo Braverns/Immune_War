@@ -34,6 +34,7 @@ func _on_enemy_died(_enemy: Node, _spawner: Node) -> void:
 	enemy_die_sfx.play()
 
 
+
 func _on_box_destroyed(_box: Node) -> void:
 	box_destroyed_sfx.play()
 
