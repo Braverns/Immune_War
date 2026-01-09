@@ -6,8 +6,10 @@ var spawners: Array = []
 func _ready():
 	body_entered.connect(_on_body_entered)
 
-	# Ambil semua spawner dari path
 	for path in spawner_paths:
+		if path == NodePath(""): # ⬅️ penting
+			continue
+
 		var spawner = get_node_or_null(path)
 		if spawner:
 			spawners.append(spawner)
