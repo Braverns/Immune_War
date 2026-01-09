@@ -52,27 +52,26 @@ func update_camera() -> void:
 
 	match current_fase:
 		0:
-			camera_0.priority = 1
+			if camera_0: camera_0.priority = 1
 		1:
-			camera_1.priority = 1
+			if camera_1: camera_1.priority = 1
 		2:
-			camera_2.priority = 1
+			if camera_2: camera_2.priority = 1
 		3:
-			camera_3.priority = 1
+			if camera_3: camera_3.priority = 1
 		4:
-			camera_4.priority = 1
+			if camera_4: camera_4.priority = 1
 		5:
-			camera_5.priority = 1
+			if camera_5: camera_5.priority = 1
 		6:
-			camera_6.priority = 1
-		
+			if camera_6: camera_6.priority = 1
+
 		-1:
 			match last_fase:
 				0:
-					camera_0.priority = 1
+					if camera_0: camera_0.priority = 1
 				1:
-					camera_1.priority = 1
-
+					if camera_1: camera_1.priority = 1
 
 
 
