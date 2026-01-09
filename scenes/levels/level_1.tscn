@@ -432,6 +432,7 @@ enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase1"]
+visible = false
 position = Vector2(6, 318)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
@@ -459,6 +460,7 @@ enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/selingan1"]
+visible = false
 position = Vector2(589, 323)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
@@ -520,6 +522,7 @@ enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/selingan3"]
+visible = false
 position = Vector2(2316, 76)
 scale = Vector2(7.368137, 0.4811504)
 script = ExtResource("22_ndtll")
@@ -558,19 +561,16 @@ enemy_config = SubResource("Resource_7h2jl")
 position = Vector2(1496, 276)
 enemy_config = SubResource("Resource_7h2jl")
 
-[node name="6SpawnerEnemy5" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
-position = Vector2(1392, 191)
-enemy_config = SubResource("Resource_7h2jl")
-
 [node name="6SpawnerEnemy4" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1093, 372)
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase2"]
+visible = false
 position = Vector2(283, 315)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
-spawner_paths = Array[NodePath]([NodePath("../1SpawnerEnemy"), NodePath("../2SpawnerEnemy5"), NodePath("../3SpawnerEnemy6"), NodePath("../4SpawnerEnemy2"), NodePath("../5SpawnerEnemy3"), NodePath("../6SpawnerEnemy4"), NodePath("../6SpawnerEnemy6"), NodePath("../6SpawnerEnemy5")])
+spawner_paths = Array[NodePath]([NodePath("../1SpawnerEnemy"), NodePath("../2SpawnerEnemy5"), NodePath("../3SpawnerEnemy6"), NodePath("../4SpawnerEnemy2"), NodePath("../5SpawnerEnemy3"), NodePath("../6SpawnerEnemy4"), NodePath("../6SpawnerEnemy6")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase2/Spawner-Trigger"]
 position = Vector2(2604.5813, -4.544861)
@@ -605,6 +605,7 @@ enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 4
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase3"]
+visible = false
 position = Vector2(1000, 323)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
@@ -642,6 +643,7 @@ enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 4
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase4"]
+visible = false
 position = Vector2(1419, -406)
 scale = Vector2(0.40859708, -13.130182)
 script = ExtResource("22_ndtll")
@@ -668,33 +670,33 @@ spawn_count = 3
 position = Vector2(3048, -412)
 enemy_scene = ExtResource("20_mqh5v")
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 6
+spawn_count = 4
 
 [node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2982, -412)
 enemy_scene = ExtResource("20_mqh5v")
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 6
+spawn_count = 4
 
 [node name="3SpawnerEnemy4" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3304, -392)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 10
+spawn_count = 6
 
 [node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3217, -392)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 10
+spawn_count = 6
 
 [node name="4SpawnerEnemy4" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2762, -414)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 10
+spawn_count = 6
 
 [node name="4SpawnerEnemy5" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2816, -414)
 enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 10
+spawn_count = 5
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase5"]
 position = Vector2(1782.0001, -432)
@@ -751,16 +753,20 @@ physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 position = Vector2(-430, 16)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
+[node name="Box10" parent="Box10/Box10" instance=ExtResource("12_mbb35")]
+position = Vector2(19, -98)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
 [node name="Box4" parent="." instance=ExtResource("12_mbb35")]
 position = Vector2(2280, -200)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box5" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(2952, -296)
+position = Vector2(2888, -296)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box5" parent="Box5" instance=ExtResource("12_mbb35")]
-position = Vector2(216, 27)
+position = Vector2(280, 27)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box6" parent="." instance=ExtResource("12_mbb35")]
