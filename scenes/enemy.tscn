@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://rwbimw3fhoxj"]
+[gd_scene load_steps=27 format=3 uid="uid://rwbimw3fhoxj"]
 
 [ext_resource type="Script" uid="uid://dvyhj5p582c73" path="res://scripts/Enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://bidd3lcdx0igl" path="res://assets/sprites/characters/enemy_1/Hit.png" id="2_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://wfhy1y7gy8kr" path="res://scenes/bullet_enemy.tscn" id="2_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://f5g8yx88k810" path="res://assets/sprites/characters/enemy_1/Run.png" id="3_c4w8v"]
+[ext_resource type="PackedScene" uid="uid://ds3oekqutgc8r" path="res://scenes/DNA.tscn" id="3_xwavj"]
 [ext_resource type="AudioStream" uid="uid://c2sih3irehx1r" path="res://assets/audio/09 - EnemyDamage.wav" id="5_c4w8v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jbj1t"]
@@ -149,6 +150,7 @@ collision_layer = 4
 collision_mask = 144
 script = ExtResource("1_4ra3w")
 bullet_enemy_scene = ExtResource("2_c4w8v")
+dna_scene = ExtResource("3_xwavj")
 
 [node name="BodyCollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 7)
