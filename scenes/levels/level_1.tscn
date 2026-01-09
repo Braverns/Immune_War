@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://c2sih3irehx1r" path="res://assets/audio/09 - EnemyDamage.wav" id="6_d5akn"]
 [ext_resource type="AudioStream" uid="uid://dpxanr6sf58gm" path="res://assets/audio/wood-crate-destory.mp3" id="7_wbtxt"]
 [ext_resource type="TileSet" uid="uid://c8iqsa6h4c4qc" path="res://assets/ground_tileset.tres" id="8_x2fux"]
-[ext_resource type="Texture2D" uid="uid://cq0egysdishyh" path="res://assets/sprites/godot tile maps bg.png" id="9_7o3do"]
+[ext_resource type="Texture2D" uid="uid://dd3bpuuhmdd60" path="res://assets/sprites/godot tile maps bg (1).png" id="9_7o3do"]
 [ext_resource type="PackedScene" uid="uid://bhyiee5tcg8c8" path="res://scenes/coin.tscn" id="9_s7g0b"]
 [ext_resource type="TileSet" uid="uid://bn3ycwtx6v2m" path="res://assets/ground.tres" id="10_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://il5orj3737qt" path="res://scenes/spike.tscn" id="10_mmfjm"]
@@ -101,101 +101,84 @@ bus = &"SFX"
 stream = ExtResource("7_wbtxt")
 bus = &"SFX"
 
-[node name="bg" type="Node" parent="."]
-process_priority = -2
-process_physics_priority = -3
+[node name="Background" type="Node" parent="."]
 
-[node name="GodotTileMapsBg" type="Sprite2D" parent="bg"]
-z_index = -2
-position = Vector2(112.00001, 288)
-scale = Vector2(1.0062501, 1.3913041)
+[node name="GodotTileMapsBg(1)" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(433.14285, 288)
+scale = Vector2(1.4285715, 2.3333333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(635.991, 0)
-scale = Vector2(1.000211, 1)
+[node name="GodotTileMapsBg(1)2" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(113.14285, 287.99994)
+scale = Vector2(1.4387755, 2.3333323)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg2" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(318.17734, 0)
-scale = Vector2(0.9989691, 0.9999995)
+[node name="GodotTileMapsBg(1)4" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(1073.1428, 288)
+scale = Vector2(1.429, 2.333333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg3" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(955.03094, 3.4752302e-06)
-scale = Vector2(0.99525356, 1)
-skew = 4.9233437e-05
+[node name="GodotTileMapsBg(1)3" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(753.1428, 288.00006)
+scale = Vector2(1.429, 2.3333337)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg4" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(1272.9121, 0)
-scale = Vector2(0.99918, 0.9999995)
+[node name="GodotTileMapsBg(1)5" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(2033.1428, 288.00018)
+scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg5" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(1590.7927, 0)
-scale = Vector2(1.000422, 1)
+[node name="GodotTileMapsBg(1)6" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(2352.048, 287.984)
+scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg6" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(1909.9, 0)
-scale = Vector2(0.9954636, 1)
-skew = 4.9233437e-05
+[node name="GodotTileMapsBg(1)7" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(1393.1427, 288.00018)
+scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg7" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(2226.0867, 0)
-scale = Vector2(0.9909479, 1)
-skew = 9.8228455e-05
+[node name="GodotTileMapsBg(1)8" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(1713.1427, 288.00018)
+scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg9" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(2257.888, -253.00003)
-scale = Vector2(0.9730887, 1)
-skew = 0.00029194355
+[node name="GodotTileMapsBg(1)9" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(2280, 61.000008)
+scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg8" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(2265.8381, -155.25002)
-scale = Vector2(0.98197764, 1)
-skew = 0.00019550323
+[node name="GodotTileMapsBg(1)10" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(2312, -80)
+scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg10" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(2591.801, -431.25006)
-scale = Vector2(1.0062199, 1.0714284)
-skew = 0.00019550323
+[node name="GodotTileMapsBg(1)12" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(2928, -312)
+scale = Vector2(2, 2.5)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg11" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(2273.8, -431.25012)
-scale = Vector2(0.99379355, 1.071429)
-skew = 0.00014698505
+[node name="GodotTileMapsBg(1)11" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(2479.976, -311.992)
+scale = Vector2(2.0002139, 2.4998333)
 texture = ExtResource("9_7o3do")
 
-[node name="GodotTileMapsBg12" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(3230.8125, -430.83936)
-scale = Vector2(1.0124785, 1.147959)
-skew = 0.00037908554
-texture = ExtResource("9_7o3do")
-
-[node name="GodotTileMapsBg13" type="Sprite2D" parent="bg/GodotTileMapsBg"]
-z_index = -2
-position = Vector2(2910.8337, -430.83936)
-scale = Vector2(0.9999748, 1.1479595)
-skew = 0.0003335476
+[node name="GodotTileMapsBg(1)13" type="Sprite2D" parent="Background"]
+z_index = -1
+position = Vector2(3376, -312.00003)
+scale = Vector2(2, 2.5)
 texture = ExtResource("9_7o3do")
 
 [node name="TileMapLayer_Background" type="TileMapLayer" parent="."]
@@ -220,7 +203,7 @@ move_speed = 200.0
 position = Vector2(279, 393)
 
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
-position = Vector2(1619, 271)
+position = Vector2(1616, 264)
 
 [node name="Enemy2" parent="." instance=ExtResource("18_1aans")]
 position = Vector2(859, 316)
@@ -367,11 +350,18 @@ tile_set = ExtResource("10_7h2jl")
 [node name="Wall" type="Node2D" parent="."]
 position = Vector2(2000, 281)
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Wall"]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D2"]
+position = Vector2(-2057.5, 11)
+shape = SubResource("RectangleShape2D_7o3do")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
-position = Vector2(-2057.5, 11)
+position = Vector2(1536, -593)
 shape = SubResource("RectangleShape2D_7o3do")
 
 [node name="boundary" type="StaticBody2D" parent="."]
