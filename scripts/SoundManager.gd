@@ -30,7 +30,7 @@ func _on_coin_changed(_new_coins: int) -> void:
 	coin_sfx.play()
 
 
-func _on_enemy_died(_enemy: Node) -> void:
+func _on_enemy_died(_enemy: Node, _spawner: Node) -> void:
 	enemy_die_sfx.play()
 
 

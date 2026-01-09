@@ -76,5 +76,7 @@ func _on_body_entered(body: Node) -> void:
 		kill()
 
 	# Jika kena Dinding (TileMap) atau Lantai (StaticBody)
-	elif body is TileMapLayer or body is StaticBody2D:
+	#elif body is TileMapLayer or body is StaticBody2D:
+		#kill()
+	elif body is StaticBody2D:
 		kill()
