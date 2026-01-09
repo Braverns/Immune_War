@@ -1,15 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://1b6isml7mpuj"]
+[gd_scene load_steps=6 format=3 uid="uid://1b6isml7mpuj"]
 
 [ext_resource type="Script" uid="uid://dtwi2um6irg35" path="res://scripts/UIManager.gd" id="1_nt7q6"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqmmt"]
-bg_color = Color(0.34581324, 0.6880342, 0.4077181, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp3eg"]
-bg_color = Color(0.18887457, 0.709638, 0.3718597, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ld40"]
-bg_color = Color(0.7618571, 0.5580731, 0.2331424, 1)
+[ext_resource type="Texture2D" uid="uid://dmhau2c8sbjvs" path="res://assets/sprites/gui/Godot UI/godt you win.png" id="2_yev5y"]
+[ext_resource type="Texture2D" uid="uid://sl01toyvpxai" path="res://assets/sprites/gui/Godot UI/Godot UI/Out of lives/godt retry button.png" id="3_gdt2y"]
+[ext_resource type="Texture2D" uid="uid://ctp84tj3v17se" path="res://assets/sprites/gui/Godot UI/Godot UI/Out of lives/godt OUT OF LIVES.png" id="4_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://cq2mt5ptgc7ct" path="res://assets/sprites/gui/Godot UI/Godot UI/Out of lives/godt home button.png" id="5_8dubc"]
 
 [node name="UI" type="CanvasLayer" node_paths=PackedStringArray("level_completed_panel", "game_over_panel")]
 script = ExtResource("1_nt7q6")
@@ -38,6 +33,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="LevelCompletedPanel"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+texture = ExtResource("2_yev5y")
+
 [node name="Label" type="Label" parent="LevelCompletedPanel"]
 layout_mode = 1
 anchors_preset = 8
@@ -45,10 +46,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -68.5
-offset_top = -55.0
-offset_right = 68.5
-offset_bottom = -32.0
+offset_left = -72.0
+offset_top = -12.0
+offset_right = 65.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Level Complete !!!"
@@ -57,19 +58,33 @@ vertical_alignment = 1
 
 [node name="Completed" type="Button" parent="LevelCompletedPanel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -79.0
-offset_top = -16.5
-offset_right = 79.0
-offset_bottom = 16.5
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.711
+anchor_right = 0.55
+anchor_bottom = 0.711
+offset_left = -1.0
+offset_top = 0.039993286
+offset_right = 71.0
+offset_bottom = 72.03999
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_gqmmt")
-text = "Completed"
+icon = ExtResource("5_8dubc")
+
+[node name="ReplayButton" type="Button" parent="LevelCompletedPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50200003
+anchor_top = 0.711
+anchor_right = 0.50200003
+anchor_bottom = 0.711
+offset_left = -72.28003
+offset_top = 0.039993286
+offset_right = -0.2800293
+offset_bottom = 72.03999
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("3_gdt2y")
 
 [node name="GameOverPanel" type="Panel" parent="."]
 visible = false
@@ -79,6 +94,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="TextureRect" type="TextureRect" parent="GameOverPanel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_wm3ai")
+
 [node name="GameOverLabel" type="Label" parent="GameOverPanel"]
 layout_mode = 1
 anchors_preset = 8
@@ -86,41 +107,42 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -68.5
-offset_top = -79.0
-offset_right = 68.5
-offset_bottom = -56.0
+offset_left = -64.0
+offset_top = -12.0
+offset_right = 73.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Game Over"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverPanel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -106.0
-offset_top = -38.0
-offset_right = 106.0
-offset_bottom = 38.0
+anchors_preset = -1
+anchor_left = 0.52500004
+anchor_top = 0.77800006
+anchor_right = 0.52500004
+anchor_bottom = 0.77800006
+offset_left = -80.00003
+offset_top = -24.080017
+offset_right = 79.99997
+offset_bottom = 39.919983
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+theme_override_constants/separation = 30
+alignment = 1
 
-[node name="ReplayButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+[node name="ReplayButton" type="Button" parent="GameOverPanel/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_dp3eg")
-text = "Replay"
+icon = ExtResource("3_gdt2y")
 
-[node name="MenuButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="GameOverPanel/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_0ld40")
-text = "Menu"
+icon = ExtResource("5_8dubc")
 
 [node name="VolumeContainer" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
