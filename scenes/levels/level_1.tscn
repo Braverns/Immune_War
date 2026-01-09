@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=36 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://br8ub7waghwlo" path="res://scenes/player.tscn" id="16_hjqri"]
 [ext_resource type="Script" uid="uid://byywb0v1cwgmn" path="res://scripts/camera_manager.gd" id="18_np2pn"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_gmpev"]
+[ext_resource type="PackedScene" uid="uid://ct3du4ygeu2ks" path="res://scenes/enemy2.tscn" id="20_7h2jl"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
 [ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
 [ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
@@ -302,6 +303,7 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="SpawnerEnemy" parent="SpawnerEnemyManager/fase1" instance=ExtResource("20_ndtll")]
 position = Vector2(416, 382)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 3
 
@@ -345,10 +347,12 @@ enemy_config = SubResource("Resource_7h2jl")
 
 [node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
 position = Vector2(1945, 336)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="SpawnerEnemy4" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
 position = Vector2(2031, 341)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
@@ -393,10 +397,12 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="1SpawnerEnemy" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1617, 376)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 
 [node name="2SpawnerEnemy5" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
 position = Vector2(1433, 291)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
@@ -430,6 +436,7 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="1SpawnerEnemy5" parent="SpawnerEnemyManager/fase3" instance=ExtResource("20_ndtll")]
 position = Vector2(2305, 288)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 4
 
@@ -489,6 +496,7 @@ shape = SubResource("RectangleShape2D_7h2jl")
 
 [node name="1SpawnerEnemy5" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(3058, -256)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 4
 
@@ -499,6 +507,13 @@ spawn_count = 3
 
 [node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
 position = Vector2(2982, -412)
+enemy_scene = ExtResource("20_7h2jl")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 6
+
+[node name="2SpawnerEnemy3" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
+position = Vector2(3475, -754)
+enemy_scene = ExtResource("20_7h2jl")
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 6
 
@@ -561,6 +576,14 @@ physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box4" parent="." instance=ExtResource("12_mbb35")]
 position = Vector2(2351, -44)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box5" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2817, -295)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box6" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(3183, -266)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]
