@@ -16,6 +16,8 @@ var direction: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	visibleOnScreenNotifier.screen_exited.connect(_on_screen_exited)
 
+	body_entered.connect(_on_body_entered)
+
 
 func _on_screen_exited() -> void:
 	print("Bullet exited screen, returning to pool")
@@ -79,6 +81,17 @@ func launch(target_pos: Vector2, dir: Vector2):
 
 	# Rotasi sprite biar ngarah ke tembakan
 	rotation = direction.angle()
+	
+func _on_body_entered(body: Node) -> void:
+	# 1. Cek jika kena Player
+	if body.name == "Player" or body.is_in_group("Player"):
+		print("Kena Player!")
+		# Masukkan logika kurangi nyawa player di sini
+		kill()
+		
+	# 2. Cek jika kena Dinding/Lantai
+	elif body is TileMapLayer or body is StaticBody2D:
+		kill()
 
 	# :: Option A ::
 	# global_position = target_pos
