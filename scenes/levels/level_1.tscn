@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://d2q66kjf63q45"]
+[gd_scene load_steps=34 format=4 uid="uid://d2q66kjf63q45"]
 
 [ext_resource type="Script" uid="uid://dyqlr67cl8cvf" path="res://scripts/Test.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://by6aitdakufv0" path="res://scripts/LevelManager.gd" id="2_2cbcq"]
@@ -16,14 +16,13 @@
 [ext_resource type="PackedScene" uid="uid://d4nyvexhfh5hv" path="res://scenes/trophy.tscn" id="11_k8ld0"]
 [ext_resource type="PackedScene" uid="uid://bbolwh6u3jwcd" path="res://scenes/box.tscn" id="12_mbb35"]
 [ext_resource type="PackedScene" uid="uid://br8ub7waghwlo" path="res://scenes/player.tscn" id="16_hjqri"]
-[ext_resource type="PackedScene" uid="uid://rwbimw3fhoxj" path="res://scenes/enemy.tscn" id="18_1aans"]
 [ext_resource type="Script" uid="uid://byywb0v1cwgmn" path="res://scripts/camera_manager.gd" id="18_np2pn"]
 [ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="19_gmpev"]
-[ext_resource type="Resource" uid="uid://bkrn57rr3s3rx" path="res://data/enemy_conf_2.tres" id="20_gmpev"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="20_mkypq"]
 [ext_resource type="PackedScene" uid="uid://c5b61p6qc6t80" path="res://scenes/spawner.tscn" id="20_ndtll"]
 [ext_resource type="Script" uid="uid://bl06t6sm325gb" path="res://scripts/EnemyConfig.gd" id="21_mkypq"]
 [ext_resource type="Script" uid="uid://dsk514lmrk0ek" path="res://scripts/spawner_trigger.gd" id="22_ndtll"]
+[ext_resource type="PackedScene" uid="uid://8y8rry7x2yh5" path="res://scenes/enemystatic.tscn" id="23_o7j4k"]
 [ext_resource type="Script" path="res://scripts/Boundary.gd" id="24_mqh5v"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a8y0u"]
@@ -219,11 +218,6 @@ position = Vector2(279, 393)
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
 position = Vector2(1619, 271)
 
-[node name="Enemy2" parent="." instance=ExtResource("18_1aans")]
-position = Vector2(859, 316)
-config = ExtResource("20_gmpev")
-bullet_enemy_scene = null
-
 [node name="Box" parent="." instance=ExtResource("12_mbb35")]
 position = Vector2(317, 347)
 spawnedObject = ExtResource("9_s7g0b")
@@ -323,40 +317,247 @@ metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
 
 [node name="SpawnerEnemyManager" type="Node" parent="."]
 
-[node name="fase0" type="Node" parent="SpawnerEnemyManager"]
-
-[node name="SpawnerEnemy" parent="SpawnerEnemyManager/fase0" instance=ExtResource("20_ndtll")]
-position = Vector2(418, 382)
-enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 3
-
-[node name="SpawnerEnemy2" parent="SpawnerEnemyManager/fase0" instance=ExtResource("20_ndtll")]
-position = Vector2(418, 217)
-enemy_config = SubResource("Resource_7h2jl")
-spawn_count = 3
-
-[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase0"]
-position = Vector2(6, 318)
-scale = Vector2(0.408127, 8.801149)
-script = ExtResource("22_ndtll")
-spawner_paths = Array[NodePath]([NodePath("../SpawnerEnemy"), NodePath("../SpawnerEnemy2")])
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase0/Spawner-Trigger"]
-position = Vector2(0.09956455, -3.976101)
-shape = SubResource("RectangleShape2D_7h2jl")
-
 [node name="fase1" type="Node" parent="SpawnerEnemyManager"]
 
 [node name="SpawnerEnemy" parent="SpawnerEnemyManager/fase1" instance=ExtResource("20_ndtll")]
-position = Vector2(1320, 369)
+position = Vector2(416, 382)
 enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="SpawnerEnemy2" parent="SpawnerEnemyManager/fase1" instance=ExtResource("20_ndtll")]
+position = Vector2(419, 209)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
 
 [node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase1"]
 position = Vector2(6, 318)
 scale = Vector2(0.408127, 8.801149)
 script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../SpawnerEnemy"), NodePath("../SpawnerEnemy2")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase1/Spawner-Trigger"]
+position = Vector2(0.09956455, -3.976101)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="selingan1" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan1" instance=ExtResource("20_ndtll")]
+position = Vector2(852, 217)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/selingan1"]
+position = Vector2(589, 323)
+scale = Vector2(0.408127, 8.801149)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath(""), NodePath("../SpawnerEnemy2")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/selingan1/Spawner-Trigger"]
+position = Vector2(0.09956455, -3.976101)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="selingan2" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
+position = Vector2(1981, 191)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
+position = Vector2(1945, 336)
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="SpawnerEnemy4" parent="SpawnerEnemyManager/selingan2" instance=ExtResource("20_ndtll")]
+position = Vector2(2031, 341)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 1
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/selingan2"]
+position = Vector2(1718, 326)
+scale = Vector2(0.408127, 8.801149)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../SpawnerEnemy2"), NodePath("../SpawnerEnemy3"), NodePath("../SpawnerEnemy4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/selingan2/Spawner-Trigger"]
+position = Vector2(0.09956455, -3.976101)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="selingan3" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
+position = Vector2(2356, -143)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 1
+
+[node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
+position = Vector2(2274, 3)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 1
+
+[node name="SpawnerEnemy4" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
+position = Vector2(2354, 17)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 1
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/selingan3"]
+position = Vector2(2316, 76)
+scale = Vector2(7.368137, 0.4811504)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../SpawnerEnemy2"), NodePath("../SpawnerEnemy3"), NodePath("../SpawnerEnemy4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/selingan3/Spawner-Trigger"]
+position = Vector2(0.09956455, -3.976101)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="fase2" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="1SpawnerEnemy" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
+position = Vector2(1617, 376)
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="2SpawnerEnemy5" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
+position = Vector2(1433, 291)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 1
+
+[node name="3SpawnerEnemy6" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
+position = Vector2(1538, 276)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="4SpawnerEnemy2" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
+position = Vector2(1309, 189)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="5SpawnerEnemy3" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
+position = Vector2(1152, 243)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="6SpawnerEnemy4" parent="SpawnerEnemyManager/fase2" instance=ExtResource("20_ndtll")]
+position = Vector2(1093, 372)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase2"]
+position = Vector2(283, 315)
+scale = Vector2(0.408127, 8.801149)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../1SpawnerEnemy"), NodePath("../2SpawnerEnemy5"), NodePath("../3SpawnerEnemy6"), NodePath("../4SpawnerEnemy2"), NodePath("../5SpawnerEnemy3"), NodePath("../6SpawnerEnemy4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase2/Spawner-Trigger"]
+position = Vector2(2604.5813, -4.544861)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="fase3" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="1SpawnerEnemy5" parent="SpawnerEnemyManager/fase3" instance=ExtResource("20_ndtll")]
+position = Vector2(2305, 288)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 4
+
+[node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase3" instance=ExtResource("20_ndtll")]
+position = Vector2(2310, 196)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 4
+
+[node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase3" instance=ExtResource("20_ndtll")]
+position = Vector2(2206, 212)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 4
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase3"]
+position = Vector2(1000, 323)
+scale = Vector2(0.408127, 8.801149)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../1SpawnerEnemy5"), NodePath("../2SpawnerEnemy2"), NodePath("../3SpawnerEnemy3")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase3/Spawner-Trigger"]
+position = Vector2(2604.5813, -4.544861)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="fase4" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="1SpawnerEnemy5" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
+position = Vector2(2586, -269)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
+position = Vector2(2613, -408)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
+position = Vector2(2324, -313)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="4SpawnerEnemy4" parent="SpawnerEnemyManager/fase4" instance=ExtResource("20_ndtll")]
+position = Vector2(2311, -421)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase4"]
+position = Vector2(1419, -406)
+scale = Vector2(0.40859708, -13.130182)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../1SpawnerEnemy5"), NodePath("../2SpawnerEnemy2"), NodePath("../3SpawnerEnemy3"), NodePath("../4SpawnerEnemy4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase4/Spawner-Trigger"]
+position = Vector2(2604.5813, -4.544861)
+shape = SubResource("RectangleShape2D_7h2jl")
+
+[node name="fase5" type="Node" parent="SpawnerEnemyManager"]
+
+[node name="1SpawnerEnemy5" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
+position = Vector2(3058, -256)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 4
+
+[node name="5SpawnerEnemy6" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
+position = Vector2(3123, -254)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 3
+
+[node name="2SpawnerEnemy2" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
+position = Vector2(2982, -412)
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 6
+
+[node name="3SpawnerEnemy3" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
+position = Vector2(3217, -392)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 10
+
+[node name="4SpawnerEnemy4" parent="SpawnerEnemyManager/fase5" instance=ExtResource("20_ndtll")]
+position = Vector2(2762, -414)
+enemy_scene = ExtResource("23_o7j4k")
+enemy_config = SubResource("Resource_7h2jl")
+spawn_count = 10
+
+[node name="Spawner-Trigger" type="Area2D" parent="SpawnerEnemyManager/fase5"]
+position = Vector2(1782.0001, -432)
+scale = Vector2(0.40859708, -13.130182)
+script = ExtResource("22_ndtll")
+spawner_paths = Array[NodePath]([NodePath("../1SpawnerEnemy5"), NodePath("../2SpawnerEnemy2"), NodePath("../3SpawnerEnemy3"), NodePath("../4SpawnerEnemy4")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnerEnemyManager/fase5/Spawner-Trigger"]
 position = Vector2(2604.5813, -4.544861)
 shape = SubResource("RectangleShape2D_7h2jl")
 
