@@ -1,25 +1,28 @@
-<h1 align="center">🧬 Immune War</h1>
-
 <p align="center">
-  <img src="https://raw.githubusercontent.com/godotengine/godot/master/logo_outlined.svg" width="140" alt="Immune War Logo">
+  <img src="assets/readme/title.png" width="720" alt="Immune War Title">
 </p>
 
 <p align="center">
-  <b>Action Platformer (Run & Gun)</b> bertema <b>sistem imun tubuh manusia</b>
+  <b>Action Platformer (Run & Gun)</b><br>
+  Bertema <b>sistem imun tubuh manusia</b>
 </p>
 
 ---
 
 ## 🧬 Tentang Game
 
-**Immune War** adalah game **Action Platformer (Run & Gun)** yang menempatkan pemain sebagai **sel darah putih** di dalam sistem imun tubuh manusia.  
-Tugas pemain adalah menembus pembuluh darah, melawan invasi bakteri, dan mencapai sumber infeksi utama.
+<strong>Immune War</strong> adalah game <strong>Action Platformer (Run & Gun)</strong>  
+di mana pemain berperan sebagai <strong>sel darah putih</strong>  
+yang bertarung melawan invasi patogen di dalam tubuh manusia.
+
+Pemain akan menjelajahi pembuluh darah, jaringan organik,  
+dan menghadapi berbagai jenis bakteri hingga mencapai sumber infeksi utama.
 
 ---
 
 ## 🎮 Informasi Game
 - **Genre**: Action Platformer  
-- **Tema**: Sistem imun & tubuh manusia  
+- **Tema**: Sistem Imun & Tubuh Manusia  
 - **Engine**: Godot Engine  
 - **Platform**: PC  
 - **Mode**: Single Player  
@@ -28,7 +31,7 @@ Tugas pemain adalah menembus pembuluh darah, melawan invasi bakteri, dan mencapa
 
 ## 🛠 Built With
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" width="80" alt="Godot Engine Logo">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Godot_icon.svg" width="64">
 </p>
 
 <p align="center">
@@ -38,17 +41,17 @@ Tugas pemain adalah menembus pembuluh darah, melawan invasi bakteri, dan mencapa
 ---
 
 ## 🕹 Gameplay Singkat
-- Movement platformer (lari & lompat)
-- Menembak ke **8 arah** secara bebas
+- Platformer movement (lari & lompat)
+- Menembak ke <strong>8 arah</strong>
 - Musuh jarak dekat & jarak jauh
-- Kumpulkan **DNA** untuk mengaktifkan **Mutasi Enzim**
+- Kumpulkan <strong>DNA</strong> untuk mengaktifkan <strong>Mutasi Enzim</strong>
 - Lingkungan organik di dalam pembuluh darah
 
 ---
 
 ## 👥 Tim Pengembang
 
-**Immune War Development Team**
+<strong>Immune War Development Team</strong>
 
 ### 🎨 Game Designers
 - Ahmad Diky Effendi  
@@ -68,4 +71,4 @@ Tugas pemain adalah menembus pembuluh darah, melawan invasi bakteri, dan mencapa
 ---
 
 ## 🚧 Status
-🔧 **Dalam tahap pengembangan**
+🔧 <strong>Dalam tahap pengembangan</strong>
