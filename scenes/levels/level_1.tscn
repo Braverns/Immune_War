@@ -151,7 +151,7 @@ texture = ExtResource("9_7o3do")
 
 [node name="GodotTileMapsBg(1)9" type="Sprite2D" parent="Background"]
 z_index = -1
-position = Vector2(2280, 61.000008)
+position = Vector2(2280.0002, 69)
 scale = Vector2(1.429, 2.333)
 texture = ExtResource("9_7o3do")
 
