@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cg3gli3ekgi7e" path="res://scripts/MenuController.gd" id="1_d52sk"]
 [ext_resource type="Texture2D" uid="uid://01ji1k2452a8" path="res://assets/sprites/gui/godt homescreen full/godt homescreen asset play.png" id="4_p3505"]
 [ext_resource type="Texture2D" uid="uid://dedsjw1gppff6" path="res://assets/sprites/gui/godt homescreen full/godt homescreen full.png" id="6_23ovu"]
-[ext_resource type="Texture2D" uid="uid://brhbimlgwoamt" path="res://assets/sprites/gui/Godot UI/Godot UI/tutorial/godt tutorial.png" id="6_66mx0"]
 [ext_resource type="Texture2D" uid="uid://bjsyfa0w75k81" path="res://assets/sprites/gui/godt homescreen full/godt homescreen asset settings button.png" id="6_dch01"]
+[ext_resource type="Texture2D" uid="uid://dpmlthrbif3fa" path="res://assets/sprites/gui/Godot UI/Godot UI/tutorial/godt tutorial (1).png" id="6_x5c8i"]
 [ext_resource type="Texture2D" uid="uid://bajp1su23oh4c" path="res://assets/sprites/gui/godt homescreen full/godt homescreen asset tutorial button.png" id="7_mlk18"]
 [ext_resource type="Texture2D" uid="uid://dv7ihxigxkfhq" path="res://assets/sprites/gui/godt settings asset/godt settings asset exit.png" id="8_fs62j"]
 [ext_resource type="Texture2D" uid="uid://cgt0by8aqe2l6" path="res://assets/sprites/gui/godt settings asset/godt homescreen bg.png" id="9_1idv1"]
@@ -102,7 +102,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("6_66mx0")
+texture = ExtResource("6_x5c8i")
 
 [node name="ExitButton" type="Button" parent="Tutorial"]
 layout_mode = 1
