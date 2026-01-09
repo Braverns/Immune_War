@@ -193,7 +193,7 @@ tile_set = ExtResource("8_x2fux")
 tile_set = SubResource("TileSet_jkv2x")
 
 [node name="Player" parent="." instance=ExtResource("16_hjqri")]
-position = Vector2(1054, 397)
+position = Vector2(-16, 386)
 collision_mask = 18
 move_speed = 200.0
 
@@ -201,14 +201,18 @@ move_speed = 200.0
 position = Vector2(279, 393)
 
 [node name="Trophy" parent="." instance=ExtResource("11_k8ld0")]
-position = Vector2(1633, -10)
+position = Vector2(3448, -296)
 
-[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "camera_0", "camera_1", "camera_2")]
+[node name="CameraManager" type="Node" parent="." node_paths=PackedStringArray("player", "camera_0", "camera_1", "camera_2", "camera_3", "camera_4", "camera_5", "camera_6")]
 script = ExtResource("18_np2pn")
 player = NodePath("../Player")
 camera_0 = NodePath("CameraNode/fase0/camera0")
 camera_1 = NodePath("CameraNode/selingan1/camera1")
 camera_2 = NodePath("CameraNode/fase2/camera2")
+camera_3 = NodePath("CameraNode/fase3/camera3")
+camera_4 = NodePath("CameraNode/fase4/camera4")
+camera_5 = NodePath("CameraNode/fase5/camera5")
+camera_6 = NodePath("CameraNode/selingan2/camera6")
 
 [node name="CameraNode" type="StaticBody2D" parent="CameraManager"]
 
@@ -235,7 +239,7 @@ shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="camera1" type="Node2D" parent="CameraManager/CameraNode/selingan1" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1054, 317)
+position = Vector2(-16, 306)
 script = ExtResource("19_gmpev")
 follow_mode = 5
 follow_target = NodePath("../../../../Player")
@@ -264,7 +268,7 @@ position = Vector2(2057, 278)
 shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="CameraManager/CameraNode/selingan1"]
-position = Vector2(3357, -316)
+position = Vector2(3352, -311)
 shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="fase2" type="Area2D" parent="CameraManager/CameraNode"]
@@ -356,9 +360,9 @@ shape = SubResource("RectangleShape2D_mkypq")
 
 [node name="camera6" type="Node2D" parent="CameraManager/CameraNode/selingan2" node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(1054, 317)
+position = Vector2(-16, 306)
 script = ExtResource("19_gmpev")
-follow_mode = 5
+follow_mode = 2
 follow_target = NodePath("../../../../Player")
 zoom = Vector2(1.3, 1.3)
 snap_to_pixel = true
@@ -367,7 +371,6 @@ host_layers = 5
 follow_offset = Vector2(0, -80)
 follow_damping = true
 follow_damping_value = Vector2(0.6, 0.3)
-follow_axis_lock = 1
 dead_zone_width = 0.279
 dead_zone_height = 0.275
 metadata/_custom_type_script = "uid://bhexx6mj1xv3q"
@@ -441,12 +444,12 @@ shape = SubResource("RectangleShape2D_7h2jl")
 [node name="selingan3" type="Node" parent="SpawnerEnemyManager"]
 
 [node name="SpawnerEnemy2" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
-position = Vector2(2363, -122)
+position = Vector2(2368, -128)
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
 [node name="SpawnerEnemy3" parent="SpawnerEnemyManager/selingan3" instance=ExtResource("20_ndtll")]
-position = Vector2(2274, 3)
+position = Vector2(2336, -128)
 enemy_config = SubResource("Resource_7h2jl")
 spawn_count = 1
 
@@ -636,7 +639,27 @@ position = Vector2(1830, 214)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [node name="Box4" parent="." instance=ExtResource("12_mbb35")]
-position = Vector2(2351, -44)
+position = Vector2(2280, -88)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box5" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(3184, -266)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box6" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(3104, -346)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box7" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2560, -360)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box8" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2872, -301)
+physics_material_override = SubResource("PhysicsMaterial_7h2jl")
+
+[node name="Box9" parent="." instance=ExtResource("12_mbb35")]
+position = Vector2(2168, 264)
 physics_material_override = SubResource("PhysicsMaterial_7h2jl")
 
 [connection signal="body_entered" from="CameraManager/CameraNode/fase0" to="CameraManager" method="_on_fase_0_body_entered"]

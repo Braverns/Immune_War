@@ -1,7 +1,7 @@
 class_name Bullet extends Area2D
 
 @export var speed = 600
-@export var lifetime = 2.0
+@export var lifetime = 0.5
 
 var currentSpeed := 0.0
 var remainingLifetime : float = 0.0
@@ -76,9 +76,6 @@ func _on_body_entered(body: Node) -> void:
 
 	elif body.is_in_group("Medkit"):
 		kill()  # pil akan handle spawn heart sendiri
-
-	elif body is TileMapLayer or body is StaticBody2D:
-		kill()
 
 	# Jika kena Dinding (TileMap) atau Lantai (StaticBody)
 	#elif body is TileMapLayer or body is StaticBody2D:

@@ -106,7 +106,7 @@ func _on_hitbox_body_entered(body):
 
 func die():
 	# Cek peluang 40% (0.4)
-	if randf() <= 0.4:
+	if randf() <= 0.6:
 		spawn_dna()
 	
 	Global.register_enemy_kill(self)

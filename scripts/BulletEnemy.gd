@@ -1,7 +1,7 @@
 class_name BulletEnemy extends Area2D
 
 @export var speed = 200
-@export var lifetime = 2.0
+@export var lifetime = 0.8
 
 var currentSpeed := 0.0
 var remainingLifetime : float = 0.0
