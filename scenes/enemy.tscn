@@ -127,7 +127,7 @@ dna_scene = ExtResource("3_xwavj")
 position = Vector2(1, 7)
 shape = SubResource("CircleShape2D_w8i8w")
 
-[node name="WeaponSprite" type="AnimatedSprite2D" parent="."]
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
 position = Vector2(-11.113338, 6)
 scale = Vector2(0.13785417, 0.096875004)
 sprite_frames = SubResource("SpriteFrames_rogs8")
