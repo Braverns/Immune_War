@@ -13,7 +13,7 @@ config_version=5
 config/name="Immune War"
 run/main_scene="uid://rk8qqqw4wvra"
 config/features=PackedStringArray("4.5", "Mobile")
-config/icon="uid://bw24aadqlutxx"
+config/icon="uid://dffy7kgvx2ap3"
 
 [autoload]
 
