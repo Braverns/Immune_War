@@ -91,6 +91,7 @@ collision_layer = 4
 collision_mask = 144
 script = ExtResource("1_3xb0j")
 config = SubResource("Resource_nenq2")
+health = 4
 bullet_enemy_scene = ExtResource("3_upijg")
 dna_scene = ExtResource("4_qsqe3")
 
