@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/Readme/title2.png" width="720" alt="Immune War Title">
+  <img src="    assets/sprites/gui/WhatsApp Image 2026-01-10 at 08.22.16.jpeg" width="720" alt="Immune War Title">
 </p>
 
 <p align="center">
