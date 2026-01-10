@@ -152,10 +152,7 @@ func die():
 	# await $HurtSFX.finished
 
 	# Option B - use global signal
-	Global.register_enemy_kill(self)
-	Global.add_coins(1)
-	queue_free()
-
+	
 
 
 func _on_enemy_damaged(enemy: Node, damage: int) -> void:

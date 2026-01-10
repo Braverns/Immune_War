@@ -732,7 +732,7 @@ shape = SubResource("RectangleShape2D_7o3do")
 collision_layer = 4112
 collision_mask = 5
 script = ExtResource("24_mqh5v")
-required_kills = 4
+required_kills = 2
 
 [node name="boundary_1" type="CollisionShape2D" parent="boundary"]
 position = Vector2(586, 281)
@@ -746,7 +746,7 @@ script = ExtResource("24_mqh5v")
 required_kills = 16
 
 [node name="boundary_1" type="CollisionShape2D" parent="boundary2"]
-position = Vector2(1525, 286)
+position = Vector2(1521, 280)
 shape = SubResource("RectangleShape2D_mqh5v")
 
 [node name="boundary3" type="StaticBody2D" parent="."]
