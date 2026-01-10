@@ -70,5 +70,5 @@ dan menghadapi berbagai jenis bakteri hingga mencapai sumber infeksi utama.
 
 ---
 
-## 🚧 Status
-🔧 <strong>Dalam tahap pengembangan</strong>
+## ✅ Status Clear
+Itch.io : https://bravern.itch.io/immune-war
