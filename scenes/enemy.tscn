@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://rwbimw3fhoxj"]
+[gd_scene load_steps=28 format=3 uid="uid://rwbimw3fhoxj"]
 
 [ext_resource type="Script" uid="uid://dvyhj5p582c73" path="res://scripts/Enemy.gd" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://bidd3lcdx0igl" path="res://assets/sprites/characters/enemy_1/Hit.png" id="2_5uy6h"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ds3oekqutgc8r" path="res://scenes/DNA.tscn" id="3_xwavj"]
 [ext_resource type="Texture2D" uid="uid://dswcgruucmxel" path="res://assets/new_assets/Musuh 1 Sprite/Idle (tanpa tangan + senjata)/Bakteri 1_Idle_1.png" id="4_ipns3"]
 [ext_resource type="Texture2D" uid="uid://dk8xgoyymwinq" path="res://assets/new_assets/Musuh 1 Sprite/Idle (tanpa tangan + senjata)/Bakteri 1_Idle_2.png" id="5_8qclf"]
-[ext_resource type="AudioStream" uid="uid://c2sih3irehx1r" path="res://assets/audio/09 - EnemyDamage.wav" id="5_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://q5kyfdsta0lw" path="res://assets/new_assets/Musuh 1 Sprite/Shoot (Hanya Tangan + Senjata)/Bakteri 1_Shoot_Atas.png" id="5_s1ycm"]
 [ext_resource type="Texture2D" uid="uid://bdhd8xirmrbxp" path="res://assets/new_assets/Musuh 1 Sprite/Shoot (Hanya Tangan + Senjata)/Bakteri 1_Shoot_Bawah.png" id="6_shcg2"]
 [ext_resource type="Texture2D" uid="uid://cbe4s743gbm28" path="res://assets/new_assets/Musuh 1 Sprite/Idle (tanpa tangan + senjata)/Bakteri 1_Idle_3.png" id="6_w8i8w"]
@@ -16,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://diw1aomo2ho18" path="res://assets/new_assets/Musuh 1 Sprite/Shoot (Hanya Tangan + Senjata)/Bakteri 1_Shoot_Serong Atas.png" id="8_1x4g4"]
 [ext_resource type="Texture2D" uid="uid://ciom3x7qwrhk6" path="res://assets/new_assets/Musuh 1 Sprite/Idle (tanpa tangan + senjata)/Bakteri 1_Idle_5.png" id="8_wtq4b"]
 [ext_resource type="Texture2D" uid="uid://nn0j77bvrlpu" path="res://assets/new_assets/Musuh 1 Sprite/Shoot (Hanya Tangan + Senjata)/Bakteri 1_Shoot_Serong Bawah.png" id="9_2pwtc"]
+[ext_resource type="AudioStream" uid="uid://c7w5sob2m5jmf" path="res://assets/audio/new sfx/Enemy Got Hit.wav" id="16_s1ycm"]
+[ext_resource type="AudioStream" uid="uid://dni7tqb1j35e2" path="res://assets/audio/new sfx/landing1.wav" id="17_shcg2"]
 
 [sub_resource type="Resource" id="Resource_nenq2"]
 script = ExtResource("2_xwavj")
@@ -42,9 +43,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_2pwtc")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yq6so"]
@@ -119,7 +120,6 @@ collision_mask = 144
 script = ExtResource("1_4ra3w")
 enemy_mode = 0
 config = SubResource("Resource_nenq2")
-health = 2
 bullet_enemy_scene = ExtResource("2_c4w8v")
 dna_scene = ExtResource("3_xwavj")
 
@@ -132,6 +132,8 @@ position = Vector2(-11.113338, 6)
 scale = Vector2(0.13785417, 0.096875004)
 sprite_frames = SubResource("SpriteFrames_rogs8")
 animation = &"shoot"
+frame = 4
+frame_progress = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, 7)
@@ -158,8 +160,12 @@ wait_time = 1.5
 autostart = true
 
 [node name="HurtSFX" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_c4w8v")
-volume_db = 1.089
+stream = ExtResource("16_s1ycm")
+volume_db = -3.268
 pitch_scale = 1.46
 bus = &"SFX"
 area_mask = 4
+
+[node name="ShootSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_shcg2")
+volume_db = -10.346

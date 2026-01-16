@@ -25,10 +25,17 @@ func physics_update(delta: float) -> void:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.move_speed)
 	
 	player.move_and_slide()
-
+	
 	# Sprite Animation
 	player.animated_sprite.play("run")
-
+	
+	# Play footstep sounds
+	if player.is_on_floor() and direction != 0:
+		if not player.step_sfx.playing:
+			player.step_sfx.play()
+	else:
+		if player.step_sfx.playing:
+			player.step_sfx.stop()
 	# ❌ DIHAPUS : AGAR FLIP TERAKHIR YANG AKTIF	
 	# print("before:  ", player.animated_sprite.flip_h)
 	# player.animated_sprite.flip_h = direction < 0

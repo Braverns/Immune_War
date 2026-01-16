@@ -11,6 +11,7 @@ var last_aim_direction: Vector2 = Vector2.RIGHT
 @onready var jump_sfx: AudioStreamPlayer = $JumpSFX
 @onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
 @onready var state_machine: StateMachine = $StateMachine
+@onready var step_sfx: AudioStreamPlayer = $StepSFX
 
 @onready var bullet_pool = $BulletPool
 
@@ -117,6 +118,8 @@ func shoot() -> void:
 		spawn_pos.y += -10                 # ← ATUR Y DI SINI
 
 		bullet.launch(spawn_pos, aim)
+		# PLAY SHOOT SFX
+		$ShootSFX.play()
 		
 		# KURANGI AMMO JIKA MUTASI
 		if Global.is_mutation_active:

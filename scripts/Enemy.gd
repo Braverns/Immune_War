@@ -15,7 +15,7 @@ enum EnemyMode {
 
 var direction := -1
 var player
-@export var health: int = 5
+@export var health: int = 3
 
 @export var bullet_enemy_scene: PackedScene
 @export var dna_scene: PackedScene
@@ -119,6 +119,7 @@ func shoot():
 
 	get_tree().current_scene.add_child(bullet)
 	bullet.launch(global_position, dir)
+	$ShootSFX.play()
 
 	await weapon_sprite.animation_finished
 	weapon_sprite.visible = false
@@ -159,7 +160,7 @@ func _on_enemy_damaged(enemy: Node, damage: int) -> void:
 	if enemy != self:
 		return
 	$HurtSFX.play()
-	health -= damage
+	health -= damage 
 
 	if health <= 0:
 		die()

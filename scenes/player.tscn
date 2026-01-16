@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://br8ub7waghwlo"]
+[gd_scene load_steps=40 format=3 uid="uid://br8ub7waghwlo"]
 
 [ext_resource type="Script" uid="uid://bn2vkypkgjq53" path="res://scripts/PlayerWithFSM.gd" id="1_d2wvv"]
 [ext_resource type="Script" uid="uid://rvk8tlhrqaft" path="res://scripts/StateMachine.gd" id="2_3v2ag"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cn2uyutplyvwv" path="res://scenes/bullet.tscn" id="3_oprun"]
 [ext_resource type="Script" uid="uid://btimd15vdlexx" path="res://scripts/Player_States/PlayerState_Jump.gd" id="4_f1ej7"]
 [ext_resource type="Script" uid="uid://cyqhypxal8kpe" path="res://scripts/Player_States/PlayerState_Knockback.gd" id="5_oprun"]
-[ext_resource type="AudioStream" uid="uid://dnh30ltuop2wj" path="res://assets/audio/sfx_jump.mp3" id="5_qlg0r"]
 [ext_resource type="Script" uid="uid://bws1ldkceawi" path="res://scripts/Player_States/PlayerState_NoControl.gd" id="6_a8ls1"]
 [ext_resource type="Script" uid="uid://2asjlkc4xmrn" path="res://scripts/Player_States/PlayerState_Run.gd" id="7_qfm1y"]
 [ext_resource type="Script" uid="uid://dlwx450q3xdj8" path="res://scripts/Player_States/PlayerState_Fall.gd" id="10_a8ls1"]
@@ -29,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://dgdbx72n0woao" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_4_Key 4 (Bersiap mendarat).png" id="20_487ah"]
 [ext_resource type="Texture2D" uid="uid://dripbgyba8x23" path="res://assets/sprites/characters/player_1/Run/Walking Kanan_6_Key 6.png" id="20_pf23h"]
 [ext_resource type="Texture2D" uid="uid://bmfuynpr704nj" path="res://assets/sprites/characters/player_1/Jump/Lompat Kanan_5_Key 5 (Mendarat).png" id="21_md1ol"]
+[ext_resource type="AudioStream" uid="uid://1o6ne1a2i5ae" path="res://assets/audio/new sfx/step2.wav" id="27_dt7fs"]
+[ext_resource type="AudioStream" uid="uid://bewfg4nbotdon" path="res://assets/audio/new sfx/attack1.wav" id="30_wqfne"]
+[ext_resource type="AudioStream" uid="uid://du6dtfp3psklf" path="res://assets/audio/new sfx/step.wav" id="31_wnwbv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tefeu"]
 radius = 8.0
@@ -190,11 +192,14 @@ sprite_frames = SubResource("SpriteFrames_a8y0u")
 animation = &"jump"
 
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_qlg0r")
+stream = ExtResource("27_dt7fs")
+volume_db = 7.113
+pitch_scale = 1.73
 bus = &"SFX"
 
 [node name="HurtSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_3v2ag")
+volume_db = -4.356
 bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -207,3 +212,14 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("18_fulsm")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="ShootSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_wqfne")
+volume_db = 7.624
+pitch_scale = 1.82
+bus = &"SFX"
+
+[node name="StepSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_wnwbv")
+volume_db = -13.154
+pitch_scale = 1.19
